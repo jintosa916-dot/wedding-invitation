@@ -3,23 +3,28 @@
 <head>
 <meta charset="UTF-8">
 
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
 <title>Anjum & Mohammed Farhan | Wedding Invitation</title>
 
 <meta name="description"
-content="Wedding invitation of Anjum and Mohammed Farhan. Join us for the Nikah and Valima celebration on October 8, 2026.">
+content="Wedding Invitation of Anjum and Mohammed Farhan - 08 October 2026">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Cormorant+Garamond:wght@400;500;600;700&family=Great+Vibes&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="preconnect"
+href="https://fonts.gstatic.com"
+crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Great+Vibes&family=Poppins:wght@300;400;500;600&family=Playfair+Display:wght@400;500;600;700&display=swap"
+rel="stylesheet">
 
 <style>
 
-/* =========================================================
+/* =========================================
    GLOBAL
-========================================================= */
+========================================= */
 
 *{
     margin:0;
@@ -32,172 +37,1255 @@ html{
 }
 
 body{
-    font-family:'Montserrat',sans-serif;
-    background:#f6f0e8;
-    color:#3d3028;
+    font-family:'Poppins',sans-serif;
+    background:#fffaf6;
+    color:#4d3b32;
     overflow-x:hidden;
 }
 
-img{
+img,
+video{
     max-width:100%;
 }
 
-a{
-    text-decoration:none;
+section{
+    position:relative;
+}
+
+.hidden{
+    display:none !important;
 }
 
 
-/* =========================================================
-   LOADING SCREEN
-========================================================= */
+/* =========================================
+   OPENING INVITATION SCREEN
+========================================= */
 
-#loader{
+.opening-screen{
     position:fixed;
     inset:0;
-    background:#211813;
+    width:100%;
+    height:100vh;
+
+    background:
+    radial-gradient(circle at top,
+    #fffdfb 0%,
+    #f8e9df 45%,
+    #ead3c5 100%);
+
     display:flex;
-    justify-content:center;
     align-items:center;
+    justify-content:center;
+
     z-index:9999;
-    transition:opacity 1s ease, visibility 1s ease;
+
+    padding:20px;
+
+    transition:
+    opacity 1s ease,
+    visibility 1s ease;
 }
 
-.loader-content{
+.opening-screen.opened{
+    opacity:0;
+    visibility:hidden;
+}
+
+.invitation-card{
+    width:min(390px,90vw);
+    min-height:560px;
+
+    background:
+    linear-gradient(
+    145deg,
+    #fffdfb,
+    #f9eee8);
+
+    border-radius:25px;
+
+    box-shadow:
+    0 25px 80px rgba(92,58,45,.25);
+
+    border:1px solid rgba(176,126,105,.25);
+
+    position:relative;
+
+    display:flex;
+    flex-direction:column;
+
+    align-items:center;
+    justify-content:center;
+
     text-align:center;
-    color:#d8b46a;
+
+    overflow:hidden;
+
+    padding:40px 25px;
+
+    cursor:pointer;
+
+    animation:cardFloat 3s ease-in-out infinite;
 }
 
-.loader-moon{
-    font-size:65px;
+
+/* Decorative circles */
+
+.invitation-card::before{
+    content:"";
+
+    position:absolute;
+
+    width:320px;
+    height:320px;
+
+    border-radius:50%;
+
+    border:1px solid rgba(181,126,100,.2);
+
+    top:-150px;
+    left:-120px;
+}
+
+.invitation-card::after{
+    content:"";
+
+    position:absolute;
+
+    width:300px;
+    height:300px;
+
+    border-radius:50%;
+
+    border:1px solid rgba(181,126,100,.18);
+
+    bottom:-160px;
+    right:-120px;
+}
+
+
+.card-small{
+    font-size:11px;
+
+    letter-spacing:4px;
+
+    text-transform:uppercase;
+
+    color:#a87362;
+
+    margin-bottom:30px;
+
+    position:relative;
+
+    z-index:2;
+}
+
+
+.af-logo{
+    font-family:'Cormorant Garamond',serif;
+
+    font-size:105px;
+
+    font-weight:500;
+
+    line-height:1;
+
+    color:#8b5147;
+
+    position:relative;
+
+    z-index:2;
+
+    text-shadow:
+    0 10px 30px rgba(139,81,71,.15);
+}
+
+
+.card-divider{
+    width:80px;
+    height:1px;
+
+    background:#c8957c;
+
+    margin:28px auto;
+
+    position:relative;
+
+    z-index:2;
+}
+
+
+.card-title{
+    font-family:'Playfair Display',serif;
+
+    font-size:18px;
+
+    letter-spacing:4px;
+
+    text-transform:uppercase;
+
+    color:#735348;
+
+    position:relative;
+
+    z-index:2;
+}
+
+
+.tap-button{
+    margin-top:55px;
+
+    padding:15px 28px;
+
+    border:1px solid #c08a75;
+
+    border-radius:50px;
+
+    background:white;
+
+    color:#8b5147;
+
+    font-size:11px;
+
+    letter-spacing:3px;
+
+    text-transform:uppercase;
+
+    position:relative;
+
+    z-index:2;
+
     animation:pulse 2s infinite;
 }
 
-.loader-text{
-    font-family:'Cinzel',serif;
-    letter-spacing:5px;
-    margin-top:20px;
-    font-size:13px;
-}
 
-@keyframes pulse{
+.tap-icon{
+    display:block;
 
-    0%,100%{
-        transform:scale(1);
-        opacity:.7;
-    }
-
-    50%{
-        transform:scale(1.15);
-        opacity:1;
-    }
-
-}
-
-
-/* =========================================================
-   MUSIC BUTTON
-========================================================= */
-
-.music-button{
-    position:fixed;
-    right:20px;
-    bottom:20px;
-    width:58px;
-    height:58px;
-    border-radius:50%;
-    border:1px solid #d7b56d;
-    background:#2c2019;
-    color:#f4d48d;
     font-size:22px;
-    cursor:pointer;
-    z-index:1000;
-    box-shadow:0 10px 30px rgba(0,0,0,.25);
-}
 
-.music-button.playing{
-    animation:musicPulse 1.5s infinite;
-}
-
-@keyframes musicPulse{
-
-    0%{
-        box-shadow:0 0 0 0 rgba(216,180,106,.6);
-    }
-
-    70%{
-        box-shadow:0 0 0 15px rgba(216,180,106,0);
-    }
-
-    100%{
-        box-shadow:0 0 0 0 rgba(216,180,106,0);
-    }
-
+    margin-bottom:8px;
 }
 
 
-/* =========================================================
+/* =========================================
    HERO VIDEO
-========================================================= */
+========================================= */
 
 .hero{
     min-height:100vh;
+
     position:relative;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    text-align:center;
+
     overflow:hidden;
-    color:white;
+
+    display:flex;
+
+    align-items:flex-end;
+
+    justify-content:center;
+
+    background:#222;
 }
 
-.hero-video{
+
+.hero video{
     position:absolute;
-    top:50%;
-    left:50%;
+
+    inset:0;
+
     width:100%;
     height:100%;
+
     object-fit:cover;
-    transform:translate(-50%,-50%);
-    z-index:-3;
+
+    object-position:center;
 }
+
+
+/* Video overlay */
 
 .hero-overlay{
     position:absolute;
+
     inset:0;
 
     background:
     linear-gradient(
-        rgba(20,12,8,.60),
-        rgba(34,22,14,.75)
+    to bottom,
+    rgba(25,15,12,.05),
+    rgba(25,15,12,.15) 45%,
+    rgba(25,15,12,.7) 100%
     );
-
-    z-index:-2;
 }
 
-.hero-pattern{
-    position:absolute;
-    inset:0;
-    opacity:.15;
-
-    background-image:
-    radial-gradient(circle at 20% 20%, #d9b568 2px, transparent 2px),
-    radial-gradient(circle at 80% 80%, #d9b568 2px, transparent 2px);
-
-    background-size:70px 70px;
-
-    z-index:-1;
-}
 
 .hero-content{
-    padding:30px;
-    animation:heroReveal 2s ease;
+    position:relative;
+
+    z-index:3;
+
+    width:100%;
+
+    padding:
+    30px 20px
+    65px;
+
+    text-align:center;
+
+    color:white;
+
+    animation:fadeUp 1.5s ease;
 }
 
-@keyframes heroReveal{
+
+.hero-small{
+    font-size:11px;
+
+    letter-spacing:4px;
+
+    text-transform:uppercase;
+
+    margin-bottom:15px;
+
+    opacity:.9;
+}
+
+
+.hero-names{
+    font-family:'Great Vibes',cursive;
+
+    font-size:clamp(58px,16vw,95px);
+
+    line-height:1;
+
+    font-weight:400;
+
+    text-shadow:
+    0 5px 30px rgba(0,0,0,.3);
+}
+
+
+.hero-and{
+    font-family:'Cormorant Garamond',serif;
+
+    font-size:30px;
+
+    margin:8px 0;
+
+    opacity:.9;
+}
+
+
+.hero-date{
+    margin-top:25px;
+
+    font-size:13px;
+
+    letter-spacing:4px;
+
+    font-weight:500;
+}
+
+
+.scroll-indicator{
+    margin-top:35px;
+
+    font-size:10px;
+
+    letter-spacing:3px;
+
+    animation:bounce 2s infinite;
+}
+
+
+/* =========================================
+   GENERAL SECTION
+========================================= */
+
+.section{
+    padding:80px 20px;
+
+    text-align:center;
+}
+
+
+.section-light{
+    background:#fffaf6;
+}
+
+
+.section-soft{
+    background:
+    linear-gradient(
+    135deg,
+    #f9eee8,
+    #fff9f5
+    );
+}
+
+
+.section-title{
+    font-family:'Cormorant Garamond',serif;
+
+    font-size:clamp(40px,10vw,58px);
+
+    font-weight:600;
+
+    color:#6e4438;
+
+    line-height:1.1;
+}
+
+
+.section-subtitle{
+    margin-top:12px;
+
+    font-size:11px;
+
+    letter-spacing:4px;
+
+    text-transform:uppercase;
+
+    color:#b17c68;
+}
+
+
+.divider{
+    width:65px;
+
+    height:2px;
+
+    background:
+    linear-gradient(
+    90deg,
+    transparent,
+    #bd846d,
+    transparent
+    );
+
+    margin:22px auto 35px;
+}
+
+
+.intro-text{
+    max-width:720px;
+
+    margin:auto;
+
+    color:#70594f;
+
+    line-height:2;
+
+    font-size:15px;
+}
+
+
+/* =========================================
+   SCRATCH DATE REVEAL
+========================================= */
+
+.date-reveal-section{
+    background:
+    linear-gradient(
+    135deg,
+    #fff9f5,
+    #f4e4dc
+    );
+}
+
+
+.scratch-container{
+    max-width:800px;
+
+    margin:45px auto 0;
+
+    display:grid;
+
+    grid-template-columns:
+    repeat(3,1fr);
+
+    gap:15px;
+}
+
+
+.scratch-card{
+    background:white;
+
+    border-radius:18px;
+
+    padding:25px 10px;
+
+    box-shadow:
+    0 12px 35px rgba(100,65,50,.1);
+
+    border:
+    1px solid rgba(185,128,105,.15);
+}
+
+
+.scratch-label{
+    font-size:9px;
+
+    letter-spacing:3px;
+
+    color:#aa7765;
+
+    text-transform:uppercase;
+
+    margin-bottom:12px;
+}
+
+
+.scratch-box{
+    width:100%;
+
+    height:100px;
+
+    position:relative;
+
+    border-radius:12px;
+
+    overflow:hidden;
+
+    background:
+    linear-gradient(
+    135deg,
+    #d5a18c,
+    #b97864
+    );
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    color:white;
+}
+
+
+.reveal-text{
+    font-family:'Playfair Display',serif;
+
+    font-size:25px;
+
+    font-weight:600;
+
+    letter-spacing:2px;
+}
+
+
+.scratch-canvas{
+    position:absolute;
+
+    inset:0;
+
+    width:100%;
+    height:100%;
+
+    cursor:pointer;
+
+    touch-action:none;
+}
+
+
+.scratch-hint{
+    margin-top:10px;
+
+    font-size:8px;
+
+    letter-spacing:2px;
+
+    text-transform:uppercase;
+
+    color:#b48370;
+}
+
+
+/* =========================================
+   COUNTDOWN
+========================================= */
+
+.countdown-section{
+    background:#6f473c;
+
+    color:white;
+
+    overflow:hidden;
+}
+
+
+.countdown-section::before{
+    content:"";
+
+    position:absolute;
+
+    width:500px;
+    height:500px;
+
+    border:1px solid rgba(255,255,255,.1);
+
+    border-radius:50%;
+
+    top:-280px;
+    left:-200px;
+}
+
+
+.countdown-title{
+    font-family:'Cormorant Garamond',serif;
+
+    font-size:48px;
+
+    position:relative;
+
+    z-index:2;
+}
+
+
+.countdown{
+    margin:40px auto 0;
+
+    max-width:750px;
+
+    display:grid;
+
+    grid-template-columns:
+    repeat(4,1fr);
+
+    gap:12px;
+
+    position:relative;
+
+    z-index:2;
+}
+
+
+.count-box{
+    padding:20px 8px;
+
+    background:
+    rgba(255,255,255,.1);
+
+    backdrop-filter:
+    blur(10px);
+
+    border:
+    1px solid rgba(255,255,255,.18);
+
+    border-radius:15px;
+}
+
+
+.count-number{
+    font-family:'Cormorant Garamond',serif;
+
+    font-size:42px;
+
+    font-weight:600;
+}
+
+
+.count-label{
+    font-size:8px;
+
+    letter-spacing:2px;
+
+    margin-top:5px;
+
+    opacity:.8;
+
+    text-transform:uppercase;
+}
+
+
+/* =========================================
+   STORY SECTION
+========================================= */
+
+.story-card{
+    max-width:850px;
+
+    margin:40px auto 0;
+
+    background:white;
+
+    padding:45px 25px;
+
+    border-radius:22px;
+
+    box-shadow:
+    0 15px 50px rgba(100,60,45,.08);
+
+    position:relative;
+}
+
+
+.story-card::before{
+    content:"❝";
+
+    position:absolute;
+
+    top:-25px;
+
+    left:50%;
+
+    transform:translateX(-50%);
+
+    width:55px;
+    height:55px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    background:#c18a73;
+
+    color:white;
+
+    border-radius:50%;
+
+    font-size:35px;
+
+    font-family:serif;
+}
+
+
+.story-text{
+    font-family:'Cormorant Garamond',serif;
+
+    font-size:25px;
+
+    line-height:1.6;
+
+    color:#705047;
+}
+
+
+/* =========================================
+   EVENTS
+========================================= */
+
+.events-grid{
+    max-width:1050px;
+
+    margin:45px auto 0;
+
+    display:grid;
+
+    grid-template-columns:
+    repeat(auto-fit,minmax(240px,1fr));
+
+    gap:22px;
+}
+
+
+.event-card{
+    background:white;
+
+    border-radius:22px;
+
+    padding:35px 22px;
+
+    box-shadow:
+    0 15px 45px rgba(90,55,40,.09);
+
+    transition:
+    transform .35s ease,
+    box-shadow .35s ease;
+
+    border:
+    1px solid rgba(185,130,105,.12);
+}
+
+
+.event-card:hover{
+    transform:
+    translateY(-8px);
+
+    box-shadow:
+    0 25px 55px rgba(90,55,40,.14);
+}
+
+
+.event-icon{
+    width:60px;
+    height:60px;
+
+    margin:auto;
+
+    border-radius:50%;
+
+    background:#f6e5dc;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    font-size:27px;
+
+    margin-bottom:20px;
+}
+
+
+.event-card h3{
+    font-family:'Cormorant Garamond',serif;
+
+    font-size:31px;
+
+    color:#70483d;
+
+    margin-bottom:10px;
+}
+
+
+.event-date{
+    font-size:13px;
+
+    font-weight:600;
+
+    color:#b27460;
+
+    margin-bottom:12px;
+}
+
+
+.event-card p{
+    font-size:13px;
+
+    line-height:1.7;
+
+    color:#80665b;
+}
+
+
+/* =========================================
+   BIG DAY
+========================================= */
+
+.big-day{
+    background:
+    linear-gradient(
+    rgba(65,38,30,.45),
+    rgba(65,38,30,.65)
+    ),
+    url('https://images.unsplash.com/photo-1544078751-58fee2d8a03b?auto=format&fit=crop&w=1600&q=85');
+
+    background-size:cover;
+
+    background-position:center;
+
+    color:white;
+
+    padding:100px 20px;
+}
+
+
+.big-day-box{
+    max-width:600px;
+
+    margin:auto;
+
+    padding:50px 25px;
+
+    background:
+    rgba(255,255,255,.12);
+
+    backdrop-filter:
+    blur(12px);
+
+    border:
+    1px solid rgba(255,255,255,.3);
+
+    border-radius:25px;
+}
+
+
+.big-day-title{
+    font-family:'Great Vibes',cursive;
+
+    font-size:70px;
+
+    font-weight:400;
+
+    margin-bottom:20px;
+}
+
+
+.big-day-box p{
+    margin:12px 0;
+
+    line-height:1.7;
+
+    font-size:15px;
+}
+
+
+.big-date{
+    font-family:'Playfair Display',serif;
+
+    font-size:22px;
+
+    letter-spacing:2px;
+}
+
+
+/* =========================================
+   TAJ MAHAL SECTION
+========================================= */
+
+.taj-section{
+    min-height:75vh;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    text-align:center;
+
+    padding:80px 20px;
+
+    background:
+    linear-gradient(
+    rgba(255,250,246,.7),
+    rgba(255,250,246,.85)
+    ),
+    url('https://images.unsplash.com/photo-1564507592333-c60657eea523?auto=format&fit=crop&w=1600&q=85');
+
+    background-size:cover;
+
+    background-position:center;
+}
+
+
+.taj-content{
+    max-width:700px;
+
+    padding:45px 25px;
+
+    background:
+    rgba(255,255,255,.72);
+
+    backdrop-filter:
+    blur(8px);
+
+    border-radius:25px;
+
+    box-shadow:
+    0 20px 60px rgba(80,50,40,.12);
+}
+
+
+.taj-title{
+    font-family:'Great Vibes',cursive;
+
+    font-size:65px;
+
+    color:#7b5044;
+
+    margin-bottom:20px;
+}
+
+
+.taj-content p{
+    line-height:2;
+
+    color:#73574d;
+}
+
+
+/* =========================================
+   ISLAMIC BLESSING
+========================================= */
+
+.blessing{
+    background:
+    linear-gradient(
+    135deg,
+    #f6e6dc,
+    #fffaf6
+    );
+}
+
+
+.arabic{
+    font-size:30px;
+
+    line-height:2;
+
+    color:#8d5b4c;
+
+    margin-bottom:20px;
+}
+
+
+.blessing-quote{
+    max-width:750px;
+
+    margin:auto;
+
+    font-family:'Cormorant Garamond',serif;
+
+    font-size:25px;
+
+    line-height:1.7;
+
+    color:#68493f;
+}
+
+
+.quote-source{
+    margin-top:18px;
+
+    font-size:11px;
+
+    letter-spacing:2px;
+
+    text-transform:uppercase;
+
+    color:#ad7866;
+}
+
+
+/* =========================================
+   VENUE
+========================================= */
+
+.venue-section{
+    background:#fff;
+}
+
+
+.venue-card{
+    max-width:750px;
+
+    margin:40px auto 0;
+
+    padding:45px 25px;
+
+    background:
+    linear-gradient(
+    145deg,
+    #fffaf7,
+    #f5e4da
+    );
+
+    border-radius:25px;
+
+    box-shadow:
+    0 15px 50px rgba(100,65,50,.1);
+}
+
+
+.venue-icon{
+    font-size:45px;
+
+    margin-bottom:18px;
+}
+
+
+.venue-card h3{
+    font-family:'Cormorant Garamond',serif;
+
+    font-size:40px;
+
+    color:#70473c;
+
+    margin-bottom:20px;
+}
+
+
+.venue-card p{
+    line-height:1.9;
+
+    font-size:15px;
+
+    color:#755c51;
+}
+
+
+.location-button{
+    display:inline-flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    gap:8px;
+
+    margin-top:30px;
+
+    padding:15px 30px;
+
+    border-radius:50px;
+
+    background:#8b584b;
+
+    color:white;
+
+    text-decoration:none;
+
+    font-size:12px;
+
+    letter-spacing:2px;
+
+    text-transform:uppercase;
+
+    transition:.3s;
+}
+
+
+.location-button:hover{
+    transform:translateY(-3px);
+
+    background:#70443a;
+}
+
+
+/* =========================================
+   CONTACT
+========================================= */
+
+.contact-section{
+    background:#f7e9e1;
+}
+
+
+.contact-grid{
+    max-width:650px;
+
+    margin:35px auto 0;
+
+    display:grid;
+
+    grid-template-columns:
+    repeat(auto-fit,minmax(220px,1fr));
+
+    gap:15px;
+}
+
+
+.contact-card{
+    background:white;
+
+    padding:25px 15px;
+
+    border-radius:18px;
+
+    box-shadow:
+    0 10px 30px rgba(90,55,40,.08);
+}
+
+
+.contact-card span{
+    display:block;
+
+    font-size:22px;
+
+    margin-bottom:10px;
+}
+
+
+.contact-card a{
+    color:#754d41;
+
+    text-decoration:none;
+
+    font-size:15px;
+
+    font-weight:500;
+}
+
+
+/* =========================================
+   FOOTER
+========================================= */
+
+.footer{
+    background:#5d3b33;
+
+    color:white;
+
+    padding:70px 20px;
+
+    text-align:center;
+}
+
+
+.footer-names{
+    font-family:'Great Vibes',cursive;
+
+    font-size:58px;
+
+    margin-bottom:20px;
+}
+
+
+.footer p{
+    font-size:13px;
+
+    line-height:1.8;
+
+    color:#eadbd3;
+}
+
+
+.footer-heart{
+    margin-top:25px;
+
+    font-size:25px;
+}
+
+
+/* =========================================
+   ANIMATIONS
+========================================= */
+
+@keyframes cardFloat{
+
+    0%,
+    100%{
+        transform:translateY(0);
+    }
+
+    50%{
+        transform:translateY(-10px);
+    }
+
+}
+
+
+@keyframes pulse{
+
+    0%{
+        box-shadow:
+        0 0 0 0 rgba(185,120,100,.35);
+    }
+
+    70%{
+        box-shadow:
+        0 0 0 14px rgba(185,120,100,0);
+    }
+
+    100%{
+        box-shadow:
+        0 0 0 0 rgba(185,120,100,0);
+    }
+
+}
+
+
+@keyframes fadeUp{
 
     from{
         opacity:0;
-        transform:translateY(40px);
+        transform:translateY(30px);
     }
 
     to{
@@ -207,55 +1295,11 @@ a{
 
 }
 
-.hero-top{
-    font-family:'Cinzel',serif;
-    letter-spacing:5px;
-    font-size:12px;
-    margin-bottom:30px;
-    color:#f2d58f;
-}
 
-.bismillah{
-    font-family:'Cormorant Garamond',serif;
-    font-size:30px;
-    font-style:italic;
-    margin-bottom:35px;
-    color:#f4deb0;
-}
+@keyframes bounce{
 
-.hero-name{
-    font-family:'Great Vibes',cursive;
-    font-size:clamp(70px,11vw,130px);
-    font-weight:400;
-    line-height:1;
-    text-shadow:0 5px 30px rgba(0,0,0,.5);
-}
-
-.hero-and{
-    font-family:'Cormorant Garamond',serif;
-    font-size:42px;
-    margin:15px 0;
-    color:#dcb96d;
-}
-
-.hero-date{
-    margin-top:35px;
-    font-family:'Cinzel',serif;
-    letter-spacing:5px;
-    font-size:15px;
-    color:#f4d992;
-}
-
-.hero-scroll{
-    margin-top:65px;
-    font-size:11px;
-    letter-spacing:4px;
-    animation:scrollBounce 2s infinite;
-}
-
-@keyframes scrollBounce{
-
-    0%,100%{
+    0%,
+    100%{
         transform:translateY(0);
     }
 
@@ -266,674 +1310,89 @@ a{
 }
 
 
-/* =========================================================
-   GENERAL SECTIONS
-========================================================= */
-
-.section{
-    padding:100px 20px;
-    text-align:center;
-    position:relative;
-}
-
-.section-dark{
-    background:#2a1d17;
-    color:white;
-}
-
-.section-title{
-    font-family:'Cormorant Garamond',serif;
-    font-size:clamp(42px,6vw,65px);
-    font-weight:500;
-}
-
-.section-subtitle{
-    max-width:700px;
-    margin:20px auto;
-    line-height:1.9;
-    color:#806b5b;
-    font-size:15px;
-}
-
-.divider{
-    width:100px;
-    height:2px;
-    margin:25px auto 35px;
-    background:linear-gradient(
-        90deg,
-        transparent,
-        #b9904c,
-        transparent
-    );
-}
-
-
-/* =========================================================
-   INTRO
-========================================================= */
-
-.intro-section{
-    background:#fbf7f1;
-}
-
-.intro-icon{
-    font-size:45px;
-    color:#b9904c;
-    margin-bottom:20px;
-}
-
-.intro-text{
-    max-width:760px;
-    margin:auto;
-    line-height:2;
-    font-size:17px;
-    color:#665447;
-}
-
-
-/* =========================================================
-   SCRATCH REVEAL
-========================================================= */
-
-.scratch-section{
-    background:
-    linear-gradient(
-        rgba(42,29,23,.92),
-        rgba(42,29,23,.95)
-    ),
-    url('https://images.unsplash.com/photo-1519225421980-715cb0215aed?auto=format&fit=crop&w=1600&q=80');
-
-    background-size:cover;
-    background-position:center;
-
-    color:white;
-}
-
-.scratch-box{
-    width:min(360px,90vw);
-    height:230px;
-
-    margin:45px auto 0;
-
-    position:relative;
-
-    border:1px solid #caa65c;
-
-    background:#fff8eb;
-
-    display:flex;
-
-    justify-content:center;
-
-    align-items:center;
-
-    overflow:hidden;
-
-    box-shadow:0 20px 50px rgba(0,0,0,.35);
-}
-
-.reveal-content{
-    text-align:center;
-    color:#3b2b22;
-    padding:20px;
-}
-
-.reveal-small{
-    font-family:'Cinzel',serif;
-    font-size:12px;
-    letter-spacing:3px;
-    color:#9c7742;
-}
-
-.reveal-date{
-    font-family:'Great Vibes',cursive;
-    font-size:60px;
-    margin:15px 0;
-    color:#9b7138;
-}
-
-.reveal-day{
-    font-family:'Cinzel',serif;
-    letter-spacing:3px;
-    font-size:14px;
-}
-
-#scratchCanvas{
-    position:absolute;
-    inset:0;
-    width:100%;
-    height:100%;
-    cursor:pointer;
-}
-
-.scratch-note{
-    margin-top:25px;
-    font-size:12px;
-    letter-spacing:3px;
-    color:#e5c883;
-}
-
-
-/* =========================================================
-   COUNTDOWN
-========================================================= */
-
-.countdown-section{
-    background:#efe4d5;
-}
-
-.countdown{
-    max-width:800px;
-    margin:50px auto 0;
-
-    display:grid;
-
-    grid-template-columns:repeat(4,1fr);
-
-    gap:20px;
-}
-
-.countdown-box{
-    background:#fffaf3;
-
-    padding:28px 10px;
-
-    border:1px solid #dec69c;
-
-    box-shadow:0 10px 30px rgba(80,50,30,.08);
-}
-
-.countdown-number{
-    font-family:'Cormorant Garamond',serif;
-
-    font-size:52px;
-
-    color:#9d743e;
-
-    font-weight:600;
-}
-
-.countdown-label{
-    margin-top:8px;
-
-    font-family:'Cinzel',serif;
-
-    font-size:10px;
-
-    letter-spacing:2px;
-
-    color:#725c47;
-}
-
-
-/* =========================================================
-   EVENTS
-========================================================= */
-
-.events-section{
-    background:#fbf8f3;
-}
-
-.event-grid{
-    max-width:1100px;
-
-    margin:50px auto 0;
-
-    display:grid;
-
-    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-
-    gap:25px;
-}
-
-.event-card{
-    background:white;
-
-    padding:45px 25px;
-
-    border:1px solid #ead9bd;
-
-    position:relative;
-
-    transition:.4s;
-
-    box-shadow:0 12px 30px rgba(0,0,0,.06);
-}
-
-.event-card:hover{
-    transform:translateY(-10px);
-}
-
-.event-number{
-    font-family:'Cinzel',serif;
-
-    color:#c29a55;
-
-    letter-spacing:3px;
-
-    font-size:12px;
-}
-
-.event-icon{
-    font-size:38px;
-
-    margin:18px 0;
-
-    color:#b58b49;
-}
-
-.event-card h3{
-    font-family:'Cormorant Garamond',serif;
-
-    font-size:35px;
-
-    font-weight:600;
-
-    margin-bottom:15px;
-}
-
-.event-date{
-    font-family:'Cinzel',serif;
-
-    font-size:12px;
-
-    letter-spacing:2px;
-
-    color:#a1763f;
-
-    margin-bottom:15px;
-}
-
-.event-card p{
-    font-size:13px;
-
-    line-height:1.8;
-
-    color:#806b5b;
-}
-
-
-/* =========================================================
-   MAIN EVENT
-========================================================= */
-
-.big-day{
-    background:#302019;
-
-    color:white;
-}
-
-.big-day-box{
-    max-width:700px;
-
-    margin:50px auto 0;
-
-    padding:60px 30px;
-
-    border:1px solid #c6a363;
-
-    background:rgba(255,255,255,.04);
-
-    box-shadow:0 20px 60px rgba(0,0,0,.25);
-}
-
-.big-day-name{
-    font-family:'Great Vibes',cursive;
-
-    font-size:70px;
-
-    color:#e0bd77;
-}
-
-.big-day-date{
-    font-family:'Cinzel',serif;
-
-    margin:30px 0;
-
-    letter-spacing:3px;
-
-    font-size:15px;
-}
-
-.big-day-details{
-    line-height:2;
-
-    color:#eadfce;
-
-    font-size:15px;
-}
-
-
-/* =========================================================
-   VIDEO SECTION
-========================================================= */
-
-.video-section{
-    background:#f6f0e8;
-}
-
-.video-container{
-    max-width:900px;
-
-    margin:45px auto 0;
-
-    position:relative;
-
-    border:8px solid white;
-
-    box-shadow:0 20px 60px rgba(0,0,0,.18);
-}
-
-.invitation-video{
-    width:100%;
-
-    display:block;
-
-    max-height:550px;
-
-    object-fit:cover;
-
-    background:#222;
-}
-
-.video-note{
-    margin-top:20px;
-
-    font-size:12px;
-
-    color:#806b5b;
-}
-
-
-/* =========================================================
-   VENUE
-========================================================= */
-
-.venue-section{
-    position:relative;
-
-    background:
-    linear-gradient(
-        rgba(35,22,15,.78),
-        rgba(35,22,15,.85)
-    ),
-    url('https://images.unsplash.com/photo-1507504031003-b417219a0fde?auto=format&fit=crop&w=1600&q=80');
-
-    background-size:cover;
-
-    background-position:center;
-
-    color:white;
-}
-
-.venue-box{
-    max-width:700px;
-
-    margin:auto;
-
-    padding:30px;
-}
-
-.venue-name{
-    font-family:'Cormorant Garamond',serif;
-
-    font-size:50px;
-
-    color:#f0ce86;
-
-    margin-bottom:20px;
-}
-
-.venue-address{
-    line-height:2;
-
-    font-size:16px;
-
-    color:#f1e6d7;
-}
-
-.map-button{
-    display:inline-block;
-
-    margin-top:35px;
-
-    padding:16px 35px;
-
-    background:#b9914e;
-
-    color:white;
-
-    font-family:'Cinzel',serif;
-
-    font-size:11px;
-
-    letter-spacing:2px;
-
-    transition:.3s;
-}
-
-.map-button:hover{
-    background:#d0ac67;
-
-    transform:translateY(-3px);
-}
-
-
-/* =========================================================
-   QURAN BLESSING
-========================================================= */
-
-.blessing{
-    background:#fcf8f2;
-}
-
-.quote-box{
-    max-width:850px;
-
-    margin:45px auto 0;
-
-    padding:50px 30px;
-
-    border-top:1px solid #d6b979;
-
-    border-bottom:1px solid #d6b979;
-}
-
-.arabic{
-    font-family:'Cormorant Garamond',serif;
-
-    font-size:32px;
-
-    line-height:1.8;
-
-    color:#a57a3e;
-
-    margin-bottom:25px;
-}
-
-.translation{
-    font-family:'Cormorant Garamond',serif;
-
-    font-size:25px;
-
-    font-style:italic;
-
-    line-height:1.6;
-
-    color:#4b3a2f;
-}
-
-.reference{
-    margin-top:20px;
-
-    font-family:'Cinzel',serif;
-
-    font-size:11px;
-
-    letter-spacing:2px;
-
-    color:#9b794a;
-}
-
-
-/* =========================================================
-   RSVP
-========================================================= */
-
-.rsvp-section{
-    background:#eadfce;
-}
-
-.rsvp-box{
-    max-width:600px;
-
-    margin:40px auto 0;
-}
-
-.rsvp-button{
-    display:inline-block;
-
-    padding:17px 38px;
-
-    background:#35241c;
-
-    color:#f5d994;
-
-    font-family:'Cinzel',serif;
-
-    font-size:12px;
-
-    letter-spacing:2px;
-
-    margin-top:25px;
-
-    transition:.3s;
-}
-
-.rsvp-button:hover{
-    background:#533b2c;
-}
-
-
-/* =========================================================
-   FOOTER
-========================================================= */
-
-footer{
-    background:#211813;
-
-    color:white;
-
-    padding:80px 20px;
-
-    text-align:center;
-}
-
-.footer-names{
-    font-family:'Great Vibes',cursive;
-
-    font-size:60px;
-
-    color:#d9b66d;
-
-    margin-bottom:20px;
-}
-
-.footer-text{
-    font-size:13px;
-
-    line-height:1.8;
-
-    color:#cfc1b1;
-}
-
-.footer-date{
-    margin-top:25px;
-
-    font-family:'Cinzel',serif;
-
-    font-size:11px;
-
-    letter-spacing:3px;
-
-    color:#d9b66d;
-}
-
-
-/* =========================================================
+/* =========================================
    MOBILE
-========================================================= */
+========================================= */
 
-@media(max-width:650px){
+@media(max-width:600px){
 
-    .hero-name{
-        font-size:70px;
+    .section{
+        padding:65px 18px;
     }
 
-    .hero-and{
+    .scratch-container{
+        gap:10px;
+    }
+
+    .scratch-card{
+        padding:18px 7px;
+    }
+
+    .scratch-box{
+        height:85px;
+    }
+
+    .reveal-text{
+        font-size:19px;
+    }
+
+    .count-number{
         font-size:32px;
     }
 
-    .hero-top{
-        letter-spacing:3px;
-        font-size:10px;
-    }
-
-    .hero-date{
-        font-size:11px;
-        letter-spacing:3px;
-    }
-
-    .section{
-        padding:75px 18px;
-    }
-
     .countdown{
-        grid-template-columns:repeat(2,1fr);
+        gap:8px;
     }
 
-    .countdown-number{
-        font-size:42px;
+    .count-box{
+        padding:16px 5px;
     }
 
-    .big-day-name{
+    .big-day-title{
         font-size:58px;
-    }
-
-    .venue-name{
-        font-size:42px;
-    }
-
-    .arabic{
-        font-size:25px;
-    }
-
-    .translation{
-        font-size:21px;
     }
 
 }
 
 </style>
-
 </head>
 
 
 <body>
 
 
-<!-- =====================================================
-     LOADER
-===================================================== -->
+<!-- =====================================
+     OPENING INVITATION
+===================================== -->
 
-<div id="loader">
+<div class="opening-screen"
+id="openingScreen">
 
-    <div class="loader-content">
+    <div class="invitation-card"
+    id="invitationCard">
 
-        <div class="loader-moon">☾</div>
+        <p class="card-small">
+            In The Name Of Allah
+        </p>
 
-        <div class="loader-text">
-            BISMILLAHIR RAHMANIR RAHIM
+        <div class="af-logo">
+            A &amp; F
+        </div>
+
+        <div class="card-divider"></div>
+
+        <div class="card-title">
+            Wedding Invitation
+        </div>
+
+        <div class="tap-button">
+
+            <span class="tap-icon">
+                ✦
+            </span>
+
+            Tap To Open
+
         </div>
 
     </div>
@@ -941,867 +1400,744 @@ footer{
 </div>
 
 
+<!-- =====================================
+     MUSIC
+===================================== -->
 
-<!-- =====================================================
-     BACKGROUND MUSIC
-===================================================== -->
+<audio
+id="weddingMusic"
+loop>
 
-<audio id="backgroundMusic" loop>
-
-    <!-- Replace this URL with your preferred Islamic instrumental audio -->
-
-    <source src="https://cdn.pixabay.com/download/audio/2022/03/10/audio_270eea1f22.mp3?filename=beautiful-arabic-background-music-110842.mp3"
+    <source
+    src="wedding-music.mp3"
     type="audio/mpeg">
 
 </audio>
 
 
-
-<button
-class="music-button"
-id="musicButton"
-onclick="toggleMusic()">
-
-♫
-
-</button>
-
-
-
-<!-- =====================================================
-     HERO
-===================================================== -->
+<!-- =====================================
+     HERO VIDEO
+===================================== -->
 
 <section class="hero">
 
-
-    <!-- HERO VIDEO -->
-
     <video
-    class="hero-video"
+    id="weddingVideo"
     autoplay
     muted
     loop
     playsinline>
 
         <source
-        src="https://videos.pexels.com/video-files/3015510/3015510-hd_1920_1080_24fps.mp4"
+        src="wedding-video.mp4"
         type="video/mp4">
 
     </video>
 
-
     <div class="hero-overlay"></div>
-
-    <div class="hero-pattern"></div>
-
 
     <div class="hero-content">
 
-
-        <p class="hero-top">
-
-            TOGETHER WITH THEIR FAMILIES
-
+        <p class="hero-small">
+            Together With Their Families
         </p>
 
-
-        <div class="bismillah">
-
-            In the name of Allah, the Most Gracious, the Most Merciful
-
-        </div>
-
-
-        <h1 class="hero-name">
-
+        <h1 class="hero-names">
             Anjum
-
         </h1>
-
 
         <div class="hero-and">
-
             &
-
         </div>
 
-
-        <h1 class="hero-name">
-
+        <h1 class="hero-names">
             Mohammed Farhan
-
         </h1>
 
-
         <p class="hero-date">
-
             08 • OCTOBER • 2026
-
         </p>
 
-
-        <p class="hero-scroll">
-
+        <div class="scroll-indicator">
             SCROLL TO BEGIN ↓
-
-        </p>
-
+        </div>
 
     </div>
-
 
 </section>
 
 
+<!-- =====================================
+     INTRODUCTION
+===================================== -->
 
-<!-- =====================================================
-     INTRO
-===================================================== -->
-
-<section class="section intro-section">
-
-
-    <div class="intro-icon">
-
-        ☾ ✦ ☽
-
-    </div>
-
+<section class="section section-light">
 
     <h2 class="section-title">
-
         A Beautiful Beginning
-
     </h2>
 
+    <p class="section-subtitle">
+        Two Souls • One Journey
+    </p>
 
     <div class="divider"></div>
-
 
     <p class="intro-text">
 
-        With the blessings of Allah and the love of our families,
-        we joyfully invite you to celebrate the beginning of our
-        beautiful journey together.
+        With hearts full of gratitude and happiness,
+        we invite you to join us as we begin a beautiful
+        new chapter of our lives together.
 
-        Your presence, prayers and blessings will make our
-        special day even more memorable.
-
-    </p>
-
-
-</section>
-
-
-
-<!-- =====================================================
-     SCRATCH TO REVEAL DATE
-===================================================== -->
-
-<section class="section scratch-section">
-
-
-    <h2 class="section-title">
-
-        A Special Date Awaits
-
-    </h2>
-
-
-    <div class="divider"></div>
-
-
-    <p>
-
-        Gently scratch below to reveal our special day
+        Your presence, prayers and blessings will make
+        our special day even more memorable.
 
     </p>
 
-
-    <div class="scratch-box">
-
-
-        <div class="reveal-content">
-
-            <div class="reveal-small">
-
-                SAVE THE DATE
-
-            </div>
-
-
-            <div class="reveal-date">
-
-                October 8
-
-            </div>
-
-
-            <div class="reveal-day">
-
-                THURSDAY • 2026
-
-            </div>
-
-
-        </div>
-
-
-        <canvas id="scratchCanvas"></canvas>
-
-
-    </div>
-
-
-    <p class="scratch-note">
-
-        ✦ SCRATCH HERE ✦
-
-    </p>
-
-
 </section>
 
 
+<!-- =====================================
+     SCRATCH DATE REVEAL
+===================================== -->
 
-<!-- =====================================================
-     COUNTDOWN
-===================================================== -->
-
-<section class="section countdown-section">
-
-
-    <h2 class="section-title">
-
-        Counting Down To Forever
-
-    </h2>
-
-
-    <div class="divider"></div>
-
-
-    <div class="countdown">
-
-
-        <div class="countdown-box">
-
-            <div
-            class="countdown-number"
-            id="days">
-
-                00
-
-            </div>
-
-            <div class="countdown-label">
-
-                DAYS
-
-            </div>
-
-        </div>
-
-
-        <div class="countdown-box">
-
-            <div
-            class="countdown-number"
-            id="hours">
-
-                00
-
-            </div>
-
-            <div class="countdown-label">
-
-                HOURS
-
-            </div>
-
-        </div>
-
-
-        <div class="countdown-box">
-
-            <div
-            class="countdown-number"
-            id="minutes">
-
-                00
-
-            </div>
-
-            <div class="countdown-label">
-
-                MINUTES
-
-            </div>
-
-        </div>
-
-
-        <div class="countdown-box">
-
-            <div
-            class="countdown-number"
-            id="seconds">
-
-                00
-
-            </div>
-
-            <div class="countdown-label">
-
-                SECONDS
-
-            </div>
-
-        </div>
-
-
-    </div>
-
-
-</section>
-
-
-
-<!-- =====================================================
-     WEDDING CELEBRATIONS
-===================================================== -->
-
-<section class="section events-section">
-
+<section
+class="section date-reveal-section">
 
     <h2 class="section-title">
-
-        Wedding Celebrations
-
+        Save The Date
     </h2>
-
-
-    <div class="divider"></div>
-
-
-    <div class="event-grid">
-
-
-        <!-- EVENT 1 -->
-
-        <div class="event-card">
-
-            <div class="event-number">
-
-                EVENT • 01
-
-            </div>
-
-
-            <div class="event-icon">
-
-                ✦
-
-            </div>
-
-
-            <h3>
-
-                Mehndi Ceremony
-
-            </h3>
-
-
-            <div class="event-date">
-
-                05 OCTOBER 2026
-
-            </div>
-
-
-            <p>
-
-                An evening filled with colours,
-                happiness, family and beautiful memories.
-
-            </p>
-
-        </div>
-
-
-
-        <!-- EVENT 2 -->
-
-        <div class="event-card">
-
-            <div class="event-number">
-
-                EVENT • 02
-
-            </div>
-
-
-            <div class="event-icon">
-
-                ✦
-
-            </div>
-
-
-            <h3>
-
-                Haldi Ceremony
-
-            </h3>
-
-
-            <div class="event-date">
-
-                06 OCTOBER 2026
-
-            </div>
-
-
-            <p>
-
-                A joyful celebration surrounded by
-                laughter, love and the warmth of family.
-
-            </p>
-
-        </div>
-
-
-
-        <!-- EVENT 3 -->
-
-        <div class="event-card">
-
-            <div class="event-number">
-
-                EVENT • 03
-
-            </div>
-
-
-            <div class="event-icon">
-
-                ☾
-
-            </div>
-
-
-            <h3>
-
-                Nikah & Valima
-
-            </h3>
-
-
-            <div class="event-date">
-
-                08 OCTOBER 2026
-
-            </div>
-
-
-            <p>
-
-                Join us as we begin our new journey
-                together with love, duas and blessings.
-
-            </p>
-
-        </div>
-
-
-    </div>
-
-
-</section>
-
-
-
-<!-- =====================================================
-     BIG DAY
-===================================================== -->
-
-<section class="section big-day">
-
-
-    <h2 class="section-title">
-
-        The Big Day
-
-    </h2>
-
-
-    <div class="divider"></div>
-
-
-    <div class="big-day-box">
-
-
-        <div class="big-day-name">
-
-            Nikah & Valima
-
-        </div>
-
-
-        <div class="big-day-date">
-
-            08 OCTOBER 2026
-
-        </div>
-
-
-        <div class="big-day-details">
-
-            <p>
-
-                <strong>Thursday</strong>
-
-            </p>
-
-
-            <p>
-
-                Lunch will be served from
-
-            </p>
-
-
-            <p>
-
-                <strong>
-
-                    11:30 AM onwards
-
-                </strong>
-
-            </p>
-
-
-            <br>
-
-
-            <p>
-
-                We would be honoured by your
-                gracious presence and heartfelt duas.
-
-            </p>
-
-
-        </div>
-
-
-    </div>
-
-
-</section>
-
-
-
-<!-- =====================================================
-     WEDDING VIDEO
-===================================================== -->
-
-<section class="section video-section">
-
-
-    <h2 class="section-title">
-
-        Our Story In Motion
-
-    </h2>
-
-
-    <div class="divider"></div>
-
 
     <p class="section-subtitle">
-
-        A glimpse of love, celebration and the
-        beautiful journey that brings us together.
-
+        Scratch To Reveal Our Special Day
     </p>
 
-
-    <div class="video-container">
-
-
-        <video
-        class="invitation-video"
-        controls
-        playsinline
-        poster="https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=1200&q=80">
+    <div class="divider"></div>
 
 
-            <!-- SAMPLE VIDEO -->
-
-            <source
-            src="https://videos.pexels.com/video-files/3015510/3015510-hd_1920_1080_24fps.mp4"
-            type="video/mp4">
+    <div class="scratch-container">
 
 
-            Your browser does not support video.
+        <!-- DAY -->
 
-        </video>
+        <div class="scratch-card">
+
+            <div class="scratch-label">
+                Day
+            </div>
+
+            <div
+            class="scratch-box"
+            id="scratchDay">
+
+                <div class="reveal-text">
+                    08
+                </div>
+
+                <canvas
+                class="scratch-canvas">
+                </canvas>
+
+            </div>
+
+            <div class="scratch-hint">
+                Scratch Here
+            </div>
+
+        </div>
+
+
+        <!-- MONTH -->
+
+        <div class="scratch-card">
+
+            <div class="scratch-label">
+                Month
+            </div>
+
+            <div
+            class="scratch-box"
+            id="scratchMonth">
+
+                <div class="reveal-text">
+                    OCT
+                </div>
+
+                <canvas
+                class="scratch-canvas">
+                </canvas>
+
+            </div>
+
+            <div class="scratch-hint">
+                Scratch Here
+            </div>
+
+        </div>
+
+
+        <!-- YEAR -->
+
+        <div class="scratch-card">
+
+            <div class="scratch-label">
+                Year
+            </div>
+
+            <div
+            class="scratch-box"
+            id="scratchYear">
+
+                <div class="reveal-text">
+                    2026
+                </div>
+
+                <canvas
+                class="scratch-canvas">
+                </canvas>
+
+            </div>
+
+            <div class="scratch-hint">
+                Scratch Here
+            </div>
+
+        </div>
 
 
     </div>
 
+</section>
 
-    <p class="video-note">
 
-        ✦ A celebration of love, faith and togetherness ✦
+<!-- =====================================
+     COUNTDOWN
+===================================== -->
 
-    </p>
+<section
+class="section countdown-section">
 
+    <h2 class="countdown-title">
+        Counting Down To Forever
+    </h2>
+
+    <div
+    class="countdown"
+    id="countdown">
+
+
+        <div class="count-box">
+
+            <div
+            class="count-number"
+            id="days">
+                00
+            </div>
+
+            <div class="count-label">
+                Days
+            </div>
+
+        </div>
+
+
+        <div class="count-box">
+
+            <div
+            class="count-number"
+            id="hours">
+                00
+            </div>
+
+            <div class="count-label">
+                Hours
+            </div>
+
+        </div>
+
+
+        <div class="count-box">
+
+            <div
+            class="count-number"
+            id="minutes">
+                00
+            </div>
+
+            <div class="count-label">
+                Minutes
+            </div>
+
+        </div>
+
+
+        <div class="count-box">
+
+            <div
+            class="count-number"
+            id="seconds">
+                00
+            </div>
+
+            <div class="count-label">
+                Seconds
+            </div>
+
+        </div>
+
+
+    </div>
 
 </section>
 
 
+<!-- =====================================
+     LOVE STORY
+===================================== -->
 
-<!-- =====================================================
-     VENUE
-===================================================== -->
+<section class="section section-light">
 
-<section class="section venue-section">
+    <h2 class="section-title">
+        Our New Chapter
+    </h2>
+
+    <div class="divider"></div>
+
+    <div class="story-card">
+
+        <p class="story-text">
+
+            Two lives, two journeys and countless dreams,
+            brought together by the beautiful will of Allah.
+
+            And now, with love in our hearts and faith
+            guiding our path, we begin our forever.
+
+        </p>
+
+    </div>
+
+</section>
 
 
-    <div class="venue-box">
+<!-- =====================================
+     TAJ MAHAL
+===================================== -->
 
+<section class="taj-section">
 
-        <h2 class="section-title">
+    <div class="taj-content">
 
-            Venue
-
+        <h2 class="taj-title">
+            A Love Written In Destiny
         </h2>
-
 
         <div class="divider"></div>
 
+        <p>
 
-        <div class="venue-name">
+            Some journeys are meant to be taken together.
+            Some moments are meant to be remembered forever.
 
-            Nasrin Palace
+            As we stand at the beginning of our new journey,
+            we would be honoured to have you beside us.
 
-        </div>
-
-
-        <div class="venue-address">
-
-
-            <strong>
-
-                Christian Colony
-
-            </strong>
-
-            <br>
-
-
-            Rajivnagar Main Road
-
-            <br>
-
-
-            Mysore, Karnataka
-
-
-            <br><br>
-
-
-            <span>
-
-                We look forward to welcoming you
-                and celebrating this beautiful occasion together.
-
-            </span>
-
-
-        </div>
-
-
-        <a
-        class="map-button"
-        href="https://www.google.com/maps/search/?api=1&query=Nasrin+Palace+Christian+Colony+Rajivnagar+Main+Road+Mysore"
-        target="_blank">
-
-            VIEW LOCATION
-
-        </a>
-
+        </p>
 
     </div>
-
 
 </section>
 
 
+<!-- =====================================
+     WEDDING EVENTS
+===================================== -->
 
-<!-- =====================================================
-     QURAN BLESSING
-===================================================== -->
-
-<section class="section blessing">
-
-
-    <h2 class="section-title">
-
-        With Love & Duas
-
-    </h2>
-
-
-    <div class="divider"></div>
-
-
-    <div class="quote-box">
-
-
-        <div class="arabic">
-
-            وَمِنْ آيَاتِهِ أَنْ خَلَقَ لَكُمْ مِنْ أَنْفُسِكُمْ أَزْوَاجًا لِتَسْكُنُوا إِلَيْهَا وَجَعَلَ بَيْنَكُمْ مَوَدَّةً وَرَحْمَةً
-
-        </div>
-
-
-        <div class="translation">
-
-            “And among His signs is that He created
-            for you spouses from among yourselves
-            so that you may find tranquillity in them;
-            and He placed between you affection and mercy.”
-
-        </div>
-
-
-        <div class="reference">
-
-            HOLY QURAN • SURAH AR-RUM • 30:21
-
-        </div>
-
-
-    </div>
-
-
-</section>
-
-
-
-<!-- =====================================================
-     RSVP
-===================================================== -->
-
-<section class="section rsvp-section">
-
+<section
+class="section section-soft">
 
     <h2 class="section-title">
-
-        Your Presence Is Our Blessing
-
+        Wedding Celebrations
     </h2>
-
-
-    <div class="divider"></div>
-
 
     <p class="section-subtitle">
+        Join Us In Every Beautiful Moment
+    </p>
 
-        We would be truly honoured to have you
-        with us as we celebrate one of the most
-        beautiful moments of our lives.
+    <div class="divider"></div>
+
+
+    <div class="events-grid">
+
+
+        <!-- Mehndi -->
+
+        <div class="event-card">
+
+            <div class="event-icon">
+                ✿
+            </div>
+
+            <h3>
+                Mehndi Ceremony
+            </h3>
+
+            <div class="event-date">
+                05 October 2026
+            </div>
+
+            <p>
+                A colourful celebration filled with
+                happiness, traditions and beautiful memories.
+            </p>
+
+        </div>
+
+
+        <!-- Haldi -->
+
+        <div class="event-card">
+
+            <div class="event-icon">
+                ✦
+            </div>
+
+            <h3>
+                Haldi Ceremony
+            </h3>
+
+            <div class="event-date">
+                06 October 2026
+            </div>
+
+            <p>
+                A joyful gathering filled with
+                laughter, love and blessings.
+            </p>
+
+        </div>
+
+
+        <!-- Nikah -->
+
+        <div class="event-card">
+
+            <div class="event-icon">
+                ♡
+            </div>
+
+            <h3>
+                Nikah &amp; Valima
+            </h3>
+
+            <div class="event-date">
+                08 October 2026
+            </div>
+
+            <p>
+                The beautiful beginning of
+                a lifetime journey together.
+            </p>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+<!-- =====================================
+     BIG DAY
+===================================== -->
+
+<section class="big-day">
+
+    <div class="big-day-box">
+
+        <p class="hero-small">
+            The Big Day
+        </p>
+
+        <h2 class="big-day-title">
+            Nikah &amp; Valima
+        </h2>
+
+        <div class="divider"></div>
+
+        <p class="big-date">
+            Thursday, 08 October 2026
+        </p>
+
+        <p>
+            We request the honour of your presence
+            and prayers as we celebrate this
+            beautiful union.
+        </p>
+
+        <p>
+            <strong>
+                Lunch will be served from
+                11:30 AM onwards
+            </strong>
+        </p>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================
+     ISLAMIC BLESSING
+===================================== -->
+
+<section
+class="section blessing">
+
+    <h2 class="section-title">
+        With Love &amp; Duas
+    </h2>
+
+    <div class="divider"></div>
+
+    <div class="arabic">
+
+        وَمِنْ آيَاتِهِ أَنْ خَلَقَ لَكُم مِّنْ أَنفُسِكُمْ أَزْوَاجًا
+        لِّتَسْكُنُوا إِلَيْهَا وَجَعَلَ بَيْنَكُم مَّوَدَّةً وَرَحْمَةً
+
+    </div>
+
+    <p class="blessing-quote">
+
+        “And among His signs is that He created for you
+        spouses from among yourselves that you may find
+        tranquility in them; and He placed between you
+        affection and mercy.”
 
     </p>
 
-
-    <a
-    class="rsvp-button"
-    href="tel:+919008955251">
-
-        CONTACT US
-
-    </a>
-
+    <div class="quote-source">
+        Quran • Surah Ar-Rum 30:21
+    </div>
 
 </section>
 
 
+<!-- =====================================
+     VENUE
+===================================== -->
 
-<!-- =====================================================
+<section
+class="section venue-section">
+
+    <h2 class="section-title">
+        The Venue
+    </h2>
+
+    <p class="section-subtitle">
+        Where Our Beautiful Journey Begins
+    </p>
+
+    <div class="divider"></div>
+
+
+    <div class="venue-card">
+
+        <div class="venue-icon">
+            📍
+        </div>
+
+        <h3>
+            Nasrin Palace
+        </h3>
+
+        <p>
+
+            Christian Colony,<br>
+
+            Rajivnagar Main Road,<br>
+
+            Mysore, Karnataka
+
+        </p>
+
+
+        <a
+        class="location-button"
+
+        href="https://www.google.com/maps/search/?api=1&query=Nasrin+Palace+Christian+Colony+Rajivnagar+Main+Road+Mysore"
+
+        target="_blank">
+
+            📍 View Location
+
+        </a>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================
+     CONTACT
+===================================== -->
+
+<section
+class="section contact-section">
+
+    <h2 class="section-title">
+        Contact
+    </h2>
+
+    <p class="section-subtitle">
+        For Any Assistance
+    </p>
+
+    <div class="divider"></div>
+
+
+    <div class="contact-grid">
+
+
+        <div class="contact-card">
+
+            <span>
+                📞
+            </span>
+
+            <a
+            href="tel:+919902638740">
+
+                +91 99026 38740
+
+            </a>
+
+        </div>
+
+
+        <div class="contact-card">
+
+            <span>
+                📞
+            </span>
+
+            <a
+            href="tel:+919591279552">
+
+                +91 9591279552
+
+            </a>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+<!-- =====================================
      FOOTER
-===================================================== -->
+===================================== -->
 
-<footer>
-
+<footer class="footer">
 
     <div class="footer-names">
 
-        Anjum & Mohammed Farhan
+        Anjum &amp; Mohammed Farhan
 
     </div>
 
+    <p>
 
-    <div class="footer-text">
+        We would be delighted to have you
+        join us as we celebrate the beginning
+        of our beautiful journey together.
 
-        With the blessings of Allah<br>
+    </p>
 
-        and the love of our families
+    <p style="margin-top:20px;">
+
+        Your Presence &amp; Blessings
+        Are Our Greatest Gift
+
+    </p>
+
+    <div class="footer-heart">
+
+        ♥︎
 
     </div>
-
-
-    <div class="footer-date">
-
-        08 • OCTOBER • 2026
-
-    </div>
-
 
 </footer>
 
 
-
-<!-- =====================================================
+<!-- =====================================
      JAVASCRIPT
-===================================================== -->
+===================================== -->
 
 <script>
 
 
-/* =========================================================
-   LOADER
-========================================================= */
+/* =========================================
+   OPEN INVITATION + MUSIC
+========================================= */
 
-window.addEventListener("load",function(){
+const invitationCard =
+document.getElementById("invitationCard");
 
-    setTimeout(function(){
+const openingScreen =
+document.getElementById("openingScreen");
 
-        const loader =
-        document.getElementById("loader");
-
-        loader.style.opacity="0";
-
-        loader.style.visibility="hidden";
-
-    },1200);
-
-});
+const weddingMusic =
+document.getElementById("weddingMusic");
 
 
+invitationCard.addEventListener(
+"click",
+function(){
 
-/* =========================================================
+    openingScreen.classList.add("opened");
+
+
+    /* Music starts after user tap */
+
+    weddingMusic.volume = 0.5;
+
+    weddingMusic.play()
+    .catch(function(error){
+
+        console.log(
+        "Music needs user interaction:",
+        error
+        );
+
+    });
+
+
+    setTimeout(
+    function(){
+
+        openingScreen.style.display =
+        "none";
+
+    },
+    1000
+    );
+
+}
+);
+
+
+
+/* =========================================
    COUNTDOWN
-========================================================= */
+========================================= */
 
 const weddingDate =
-new Date("October 8, 2026 11:30:00").getTime();
+new Date(
+"October 8, 2026 11:30:00"
+).getTime();
 
 
 function updateCountdown(){
@@ -1811,18 +2147,22 @@ function updateCountdown(){
 
 
     const distance =
-    weddingDate-now;
+    weddingDate - now;
 
 
-    if(distance<=0){
+    if(distance <= 0){
 
-        document.getElementById("days").innerHTML="00";
+        document.getElementById("days")
+        .innerHTML = "00";
 
-        document.getElementById("hours").innerHTML="00";
+        document.getElementById("hours")
+        .innerHTML = "00";
 
-        document.getElementById("minutes").innerHTML="00";
+        document.getElementById("minutes")
+        .innerHTML = "00";
 
-        document.getElementById("seconds").innerHTML="00";
+        document.getElementById("seconds")
+        .innerHTML = "00";
 
         return;
 
@@ -1830,42 +2170,56 @@ function updateCountdown(){
 
 
     const days =
-    Math.floor(distance/(1000*60*60*24));
+    Math.floor(
+    distance /
+    (1000 * 60 * 60 * 24)
+    );
 
 
     const hours =
     Math.floor(
-        (distance%(1000*60*60*24))
-        /(1000*60*60)
+    (distance %
+    (1000 * 60 * 60 * 24))
+    /
+    (1000 * 60 * 60)
     );
 
 
     const minutes =
     Math.floor(
-        (distance%(1000*60*60))
-        /(1000*60)
+    (distance %
+    (1000 * 60 * 60))
+    /
+    (1000 * 60)
     );
 
 
     const seconds =
     Math.floor(
-        (distance%(1000*60))/1000
+    (distance %
+    (1000 * 60))
+    /
+    1000
     );
 
 
-    document.getElementById("days").innerHTML =
+    document.getElementById("days")
+    .innerHTML =
     String(days).padStart(2,"0");
 
 
-    document.getElementById("hours").innerHTML =
+    document.getElementById("hours")
+    .innerHTML =
     String(hours).padStart(2,"0");
 
 
-    document.getElementById("minutes").innerHTML =
+    document.getElementById("minutes")
+    .innerHTML =
     String(minutes).padStart(2,"0");
 
 
-    document.getElementById("seconds").innerHTML =
+    document.getElementById("seconds")
+    .innerHTML =
     String(seconds).padStart(2,"0");
 
 }
@@ -1873,294 +2227,349 @@ function updateCountdown(){
 
 updateCountdown();
 
-
-setInterval(updateCountdown,1000);
-
-
-
-/* =========================================================
-   MUSIC CONTROL
-========================================================= */
-
-const music =
-document.getElementById("backgroundMusic");
+setInterval(
+updateCountdown,
+1000
+);
 
 
-const musicButton =
-document.getElementById("musicButton");
+
+/* =========================================
+   SCRATCH EFFECT
+========================================= */
+
+function setupScratch(canvas){
+
+    const parent =
+    canvas.parentElement;
 
 
-function toggleMusic(){
+    function resizeCanvas(){
 
-    if(music.paused){
+        const rect =
+        parent.getBoundingClientRect();
 
-        music.play();
 
-        musicButton.innerHTML="❚❚";
+        const ratio =
+        window.devicePixelRatio || 1;
 
-        musicButton.classList.add("playing");
+
+        canvas.width =
+        rect.width * ratio;
+
+
+        canvas.height =
+        rect.height * ratio;
+
+
+        canvas.style.width =
+        rect.width + "px";
+
+
+        canvas.style.height =
+        rect.height + "px";
+
+
+        const ctx =
+        canvas.getContext("2d");
+
+
+        ctx.scale(
+        ratio,
+        ratio
+        );
+
+
+        const gradient =
+        ctx.createLinearGradient(
+        0,
+        0,
+        rect.width,
+        rect.height
+        );
+
+
+        gradient.addColorStop(
+        0,
+        "#d7a38d"
+        );
+
+
+        gradient.addColorStop(
+        1,
+        "#ae705e"
+        );
+
+
+        ctx.fillStyle =
+        gradient;
+
+
+        ctx.fillRect(
+        0,
+        0,
+        rect.width,
+        rect.height
+        );
+
+
+        ctx.fillStyle =
+        "rgba(255,255,255,.85)";
+
+
+        ctx.font =
+        "10px Poppins";
+
+
+        ctx.textAlign =
+        "center";
+
+
+        ctx.fillText(
+        "SCRATCH",
+        rect.width / 2,
+        rect.height / 2
+        );
 
     }
 
-    else{
 
-        music.pause();
+    resizeCanvas();
 
-        musicButton.innerHTML="♫";
 
-        musicButton.classList.remove("playing");
+    const ctx =
+    canvas.getContext("2d");
+
+
+    let drawing =
+    false;
+
+
+    function getPosition(event){
+
+        const rect =
+        canvas.getBoundingClientRect();
+
+
+        let clientX;
+        let clientY;
+
+
+        if(event.touches){
+
+            clientX =
+            event.touches[0].clientX;
+
+
+            clientY =
+            event.touches[0].clientY;
+
+        }
+
+        else{
+
+            clientX =
+            event.clientX;
+
+
+            clientY =
+            event.clientY;
+
+        }
+
+
+        return{
+
+            x:
+            clientX - rect.left,
+
+
+            y:
+            clientY - rect.top
+
+        };
 
     }
 
-}
+
+    function scratch(event){
+
+        if(!drawing)
+        return;
 
 
-
-/* =========================================================
-   SCRATCH CARD
-========================================================= */
-
-const canvas =
-document.getElementById("scratchCanvas");
+        event.preventDefault();
 
 
-const ctx =
-canvas.getContext("2d");
+        const pos =
+        getPosition(event);
 
 
-function setupCanvas(){
-
-    const rect =
-    canvas.getBoundingClientRect();
+        ctx.globalCompositeOperation =
+        "destination-out";
 
 
-    canvas.width=
-    rect.width;
+        ctx.beginPath();
 
 
-    canvas.height=
-    rect.height;
+        ctx.arc(
+        pos.x,
+        pos.y,
+        22,
+        0,
+        Math.PI * 2
+        );
 
 
-    ctx.fillStyle="#b68b4c";
+        ctx.fill();
 
 
-    ctx.fillRect(
+        checkScratch();
+
+    }
+
+
+    function checkScratch(){
+
+        const pixels =
+        ctx.getImageData(
         0,
         0,
         canvas.width,
         canvas.height
-    );
+        ).data;
 
 
-    ctx.fillStyle="#e7c77f";
+        let transparent =
+        0;
 
 
-    ctx.font="18px Cinzel";
+        for(
+        let i = 3;
+        i < pixels.length;
+        i += 40
+        ){
+
+            if(
+            pixels[i] === 0
+            ){
+
+                transparent++;
+
+            }
+
+        }
 
 
-    ctx.textAlign="center";
+        const percentage =
+        transparent /
+        (pixels.length / 40);
 
 
-    ctx.fillText(
-        "SCRATCH TO REVEAL",
-        canvas.width/2,
-        canvas.height/2
-    );
+        if(
+        percentage > 0.45
+        ){
+
+            canvas.style.transition =
+            "opacity .5s";
 
 
-    ctx.globalCompositeOperation=
-    "destination-out";
-
-}
+            canvas.style.opacity =
+            "0";
 
 
-setupCanvas();
+            setTimeout(
+            function(){
 
+                canvas.style.display =
+                "none";
 
-let scratching=false;
+            },
+            500
+            );
 
-
-function getPosition(event){
-
-    const rect =
-    canvas.getBoundingClientRect();
-
-
-    let clientX;
-    let clientY;
-
-
-    if(event.touches){
-
-        clientX=
-        event.touches[0].clientX;
-
-
-        clientY=
-        event.touches[0].clientY;
-
-    }
-
-    else{
-
-        clientX=
-        event.clientX;
-
-
-        clientY=
-        event.clientY;
+        }
 
     }
 
 
-    return{
-
-        x:clientX-rect.left,
-
-        y:clientY-rect.top
-
-    };
-
-}
-
-
-function scratch(event){
-
-    if(!scratching)return;
-
-
-    event.preventDefault();
-
-
-    const position =
-    getPosition(event);
-
-
-    ctx.beginPath();
-
-
-    ctx.arc(
-
-        position.x,
-
-        position.y,
-
-        25,
-
-        0,
-
-        Math.PI*2
-
-    );
-
-
-    ctx.fill();
-
-}
-
-
-canvas.addEventListener(
-
+    canvas.addEventListener(
     "mousedown",
+    function(event){
 
-    function(){
+        drawing = true;
 
-        scratching=true;
-
-    }
-
-);
-
-
-canvas.addEventListener(
-
-    "mouseup",
-
-    function(){
-
-        scratching=false;
+        scratch(event);
 
     }
-
-);
-
-
-canvas.addEventListener(
-
-    "mouseleave",
-
-    function(){
-
-        scratching=false;
-
-    }
-
-);
+    );
 
 
-canvas.addEventListener(
-
+    canvas.addEventListener(
     "mousemove",
-
     scratch
+    );
 
-);
+
+    window.addEventListener(
+    "mouseup",
+    function(){
+
+        drawing = false;
+
+    }
+    );
 
 
-canvas.addEventListener(
-
+    canvas.addEventListener(
     "touchstart",
+    function(event){
 
-    function(){
+        drawing = true;
 
-        scratching=true;
+        scratch(event);
 
-    }
-
-);
-
-
-canvas.addEventListener(
-
-    "touchend",
-
-    function(){
-
-        scratching=false;
-
-    }
-
-);
-
-
-canvas.addEventListener(
-
-    "touchmove",
-
-    scratch,
-
+    },
     {passive:false}
+    );
 
-);
+
+    canvas.addEventListener(
+    "touchmove",
+    scratch,
+    {passive:false}
+    );
 
 
-window.addEventListener(
-
-    "resize",
-
+    canvas.addEventListener(
+    "touchend",
     function(){
 
-        setupCanvas();
+        drawing = false;
 
     }
+    );
 
+
+    window.addEventListener(
+    "resize",
+    resizeCanvas
+    );
+
+}
+
+
+document
+.querySelectorAll(
+".scratch-canvas"
+)
+.forEach(
+setupScratch
 );
+
 
 
 </script>
 
-
 </body>
-
 </html>
