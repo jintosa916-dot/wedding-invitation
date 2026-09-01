@@ -1,1 +1,388 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+<title>Anjum & Mohammed Farhan | Wedding Invitation</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Great+Vibes&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<style>
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+html{
+  scroll-behavior:smooth;
+}
+
+body{
+  font-family:'Poppins',sans-serif;
+  background:#f8f3ed;
+  color:#5a4638;
+  overflow-x:hidden;
+}
+
+.hero{
+  min-height:100vh;
+  background:
+  linear-gradient(rgba(60,35,25,.45),rgba(60,35,25,.55)),
+  url('https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=1600&q=80');
+  background-size:cover;
+  background-position:center;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  text-align:center;
+  color:white;
+  padding:30px;
+}
+
+.hero-content{
+  animation:fadeIn 2s ease;
+}
+
+.small-title{
+  font-size:14px;
+  letter-spacing:4px;
+  text-transform:uppercase;
+  margin-bottom:20px;
+}
+
+.names{
+  font-family:'Great Vibes',cursive;
+  font-size:clamp(55px,10vw,110px);
+  font-weight:400;
+  line-height:1.1;
+}
+
+.and{
+  font-family:'Cormorant Garamond',serif;
+  font-size:35px;
+  margin:10px 0;
+}
+
+.date{
+  margin-top:25px;
+  font-size:18px;
+  letter-spacing:3px;
+}
+
+.scroll{
+  margin-top:50px;
+  font-size:12px;
+  letter-spacing:3px;
+  animation:bounce 2s infinite;
+}
+
+.section{
+  padding:80px 20px;
+  text-align:center;
+}
+
+.section-title{
+  font-family:'Cormorant Garamond',serif;
+  font-size:48px;
+  font-weight:500;
+  margin-bottom:15px;
+}
+
+.divider{
+  width:70px;
+  height:2px;
+  background:#b89462;
+  margin:15px auto 30px;
+}
+
+.intro{
+  max-width:700px;
+  margin:auto;
+  line-height:1.9;
+  font-size:16px;
+  color:#735f50;
+}
+
+.events{
+  background:#efe5da;
+}
+
+.event-grid{
+  max-width:1000px;
+  margin:50px auto 0;
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
+  gap:25px;
+}
+
+.card{
+  background:white;
+  padding:40px 25px;
+  border-radius:5px;
+  box-shadow:0 10px 30px rgba(0,0,0,.08);
+  transition:.3s;
+}
+
+.card:hover{
+  transform:translateY(-8px);
+}
+
+.card h3{
+  font-family:'Cormorant Garamond',serif;
+  font-size:30px;
+  color:#a77b4d;
+  margin-bottom:15px;
+}
+
+.card .event-date{
+  font-size:16px;
+  font-weight:500;
+  margin-bottom:10px;
+}
+
+.card p{
+  font-size:14px;
+  color:#806c5c;
+}
+
+.main-event{
+  background:#fff;
+}
+
+.main-event-box{
+  max-width:650px;
+  margin:40px auto 0;
+  padding:50px 25px;
+  border:1px solid #d8bd9d;
+  background:#faf7f2;
+}
+
+.main-event-box h3{
+  font-family:'Great Vibes',cursive;
+  font-size:55px;
+  font-weight:400;
+  color:#a77b4d;
+  margin-bottom:20px;
+}
+
+.main-event-box p{
+  margin:10px 0;
+  line-height:1.7;
+}
+
+.venue{
+  background:
+  linear-gradient(rgba(80,55,40,.7),rgba(80,55,40,.7)),
+  url('https://images.unsplash.com/photo-1507504031003-b417219a0fde?auto=format&fit=crop&w=1600&q=80');
+  background-size:cover;
+  background-position:center;
+  color:white;
+}
+
+.venue-content{
+  max-width:700px;
+  margin:auto;
+}
+
+.venue h2{
+  font-family:'Cormorant Garamond',serif;
+  font-size:50px;
+  margin-bottom:20px;
+}
+
+.venue p{
+  line-height:1.9;
+  font-size:16px;
+}
+
+.map-btn{
+  display:inline-block;
+  margin-top:30px;
+  padding:14px 30px;
+  background:#b89462;
+  color:white;
+  text-decoration:none;
+  border-radius:3px;
+  transition:.3s;
+}
+
+.map-btn:hover{
+  background:#926d46;
+}
+
+.footer{
+  padding:60px 20px;
+  text-align:center;
+  background:#382d26;
+  color:#eee;
+}
+
+.footer .thanks{
+  font-family:'Great Vibes',cursive;
+  font-size:50px;
+  margin-bottom:15px;
+}
+
+.footer p{
+  font-size:14px;
+  color:#cfc4ba;
+}
+
+@keyframes fadeIn{
+  from{
+    opacity:0;
+    transform:translateY(20px);
+  }
+  to{
+    opacity:1;
+    transform:translateY(0);
+  }
+}
+
+@keyframes bounce{
+  0%,100%{
+    transform:translateY(0);
+  }
+  50%{
+    transform:translateY(10px);
+  }
+}
+
+@media(max-width:600px){
+
+  .section{
+    padding:60px 18px;
+  }
+
+  .section-title{
+    font-size:40px;
+  }
+
+  .names{
+    font-size:65px;
+  }
+
+  .main-event-box h3{
+    font-size:45px;
+  }
+
+}
+</style>
+</head>
+
+<body>
+
+<section class="hero">
+  <div class="hero-content">
+    <p class="small-title">Together with their families</p>
+
+    <h1 class="names">Anjum</h1>
+
+    <div class="and">&</div>
+
+    <h1 class="names">Mohammed Farhan</h1>
+
+    <p class="date">08 • OCTOBER • 2026</p>
+
+    <p class="scroll">SCROLL DOWN ↓</p>
+  </div>
+</section>
+
+<section class="section">
+  <h2 class="section-title">We are getting married</h2>
+  <div class="divider"></div>
+
+  <p class="intro">
+    With immense joy and happiness, we invite you to join us as we begin
+    a beautiful new chapter of our lives together. Your presence and blessings
+    will make our special day even more memorable.
+  </p>
+</section>
+
+<section class="section events">
+
+  <h2 class="section-title">Wedding Celebrations</h2>
+  <div class="divider"></div>
+
+  <div class="event-grid">
+
+    <div class="card">
+      <h3>Mehndi Ceremony</h3>
+      <p class="event-date">05 October 2026</p>
+      <p>Come celebrate with colours, music and happiness.</p>
+    </div>
+
+    <div class="card">
+      <h3>Haldi Ceremony</h3>
+      <p class="event-date">06 October 2026</p>
+      <p>A joyful celebration filled with love and laughter.</p>
+    </div>
+
+    <div class="card">
+      <h3>Nikah & Valima</h3>
+      <p class="event-date">08 October 2026</p>
+      <p>Join us as two hearts become one.</p>
+    </div>
+
+  </div>
+
+</section>
+
+<section class="section main-event">
+
+  <h2 class="section-title">The Big Day</h2>
+  <div class="divider"></div>
+
+  <div class="main-event-box">
+
+    <h3>Nikah & Valima</h3>
+
+    <p><strong>08 October 2026</strong></p>
+
+    <p>Lunch will be served at</p>
+
+    <p><strong>11:30 AM onwards</strong></p>
+
+  </div>
+
+</section>
+
+<section class="section venue">
+
+  <div class="venue-content">
+
+    <h2>Venue</h2>
+
+    <div class="divider"></div>
+
+    <p>
+      <strong>Nasrin Palace</strong><br>
+      Christian Colony,<br>
+      Rajivnagar Main Road,<br>
+      Mysore
+    </p>
+
+    <a class="map-btn"
+    href="https://www.google.com/maps/search/?api=1&query=Nasrin+Palace+Christian+Colony+Rajivnagar+Main+Road+Mysore"
+    target="_blank">
+    View Location
+    </a>
+
+  </div>
+
+</section>
+
+<footer class="footer">
+
+  <div class="thanks">We can't wait to celebrate with you!</div>
+
+  <p>With love,</p>
+
+  <p><strong>Anjum & Mohammed Farhan</strong></p>
+
+</footer>
+
+</body>
+</html>
