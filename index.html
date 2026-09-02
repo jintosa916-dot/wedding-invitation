@@ -1,28 +1,28 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<meta name="theme-color" content="#ead7cf">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>Anjum & Mohammed Farhan | Wedding Invitation</title>
-<meta name="description" content="Anjum & Mohammed Farhan — Nikah & Valima, 08 October 2026">
 
 <style>
 :root{
-  --rose:#d8b9b0;
-  --rose-dark:#9d7169;
-  --cream:#fbf5ed;
-  --ivory:#fffaf4;
-  --gold:#b89558;
-  --gold-light:#e2ca96;
-  --sage:#7f8f79;
-  --ink:#243c34;
-  --deep:#18342c;
-  --paper:#f4e5d9;
+  --blush:#dfc1b8;
+  --rose:#a8756d;
+  --cream:#fffaf4;
+  --ivory:#f8eee7;
+  --gold:#b89658;
+  --gold2:#dfc895;
+  --sage:#7d8d79;
+  --green:#29473d;
+  --dark:#18352d;
+  --text:#39443e;
 }
 
-*{box-sizing:border-box}
+*{
+  box-sizing:border-box;
+}
 
 html{
   scroll-behavior:smooth;
@@ -30,14 +30,13 @@ html{
 
 body{
   margin:0;
-  background:var(--cream);
-  color:var(--ink);
-  font-family:Arial,sans-serif;
   overflow-x:hidden;
+  background:var(--cream);
+  color:var(--text);
+  font-family:Arial,sans-serif;
 }
 
-button,
-a{
+button,a{
   font:inherit;
 }
 
@@ -45,124 +44,97 @@ button{
   cursor:pointer;
 }
 
-img,
-video{
-  max-width:100%;
-  display:block;
+a{
+  text-decoration:none;
 }
 
-/* =========================
-   OPENING
-========================= */
+/* ==================================
+   OPENING CARD
+================================== */
 
-.opening{
+#opening{
   position:fixed;
   inset:0;
-  z-index:1000;
-  display:grid;
-  place-items:center;
+  z-index:9999;
+  display:flex;
+  justify-content:center;
+  align-items:center;
   background:
-    radial-gradient(circle at 50% 35%,#f5dfd5 0,#ead0c6 48%,#c59e96 100%);
-  perspective:1600px;
-  overflow:hidden;
+    radial-gradient(
+      circle at center,
+      #f7e8e1 0%,
+      #e8cfc6 50%,
+      #c9a49b 100%
+    );
   transition:
     opacity 1s ease,
     visibility 1s ease;
 }
 
-.opening.hide{
+#opening.hide{
   opacity:0;
   visibility:hidden;
   pointer-events:none;
 }
 
-.opening::before,
-.opening::after{
-  content:"";
-  position:absolute;
-  width:260px;
-  height:260px;
-  border:1px solid rgba(184,149,88,.35);
-  border-radius:50%;
-}
-
-.opening::before{
-  top:-110px;
-  left:-100px;
-}
-
-.opening::after{
-  bottom:-110px;
-  right:-100px;
-}
-
-.invitation-cover{
+.card{
   width:min(86vw,390px);
-  aspect-ratio:0.70;
+  aspect-ratio:.70;
   position:relative;
-  transform-style:preserve-3d;
-  transition:
-    transform 1.5s cubic-bezier(.2,.75,.2,1),
-    opacity 1s ease;
-}
-
-.invitation-cover.open{
-  transform:
-    rotateY(-78deg)
-    translateX(-55%);
-}
-
-.cover-front{
-  position:absolute;
-  inset:0;
+  border-radius:25px;
   background:
     linear-gradient(
       145deg,
-      rgba(255,255,255,.45),
+      rgba(255,255,255,.65),
       transparent 35%
     ),
     var(--ivory);
   border:1px solid var(--gold);
-  border-radius:22px;
   box-shadow:
-    0 35px 80px rgba(70,45,40,.28),
-    inset 0 0 0 8px rgba(184,149,88,.07);
-  backface-visibility:hidden;
+    0 35px 80px rgba(67,43,38,.30),
+    inset 0 0 0 8px rgba(184,150,88,.07);
   overflow:hidden;
+  transform-style:preserve-3d;
+  transition:
+    transform 1.4s cubic-bezier(.2,.8,.2,1);
 }
 
-.cover-front::before{
+.card.open{
+  transform:
+    rotateY(-80deg)
+    translateX(-55%);
+}
+
+.card:before{
   content:"";
   position:absolute;
   inset:13px;
-  border:1px solid rgba(184,149,88,.55);
-  border-radius:16px;
-  pointer-events:none;
+  border:1px solid rgba(184,150,88,.55);
+  border-radius:18px;
 }
 
-.floral{
+.flower{
   position:absolute;
   color:var(--sage);
-  opacity:.7;
-  font-size:75px;
-  line-height:1;
+  font-size:82px;
+  opacity:.55;
 }
 
-.floral.one{
-  top:18px;
-  left:18px;
-  transform:rotate(-25deg);
+.flower.one{
+  top:5px;
+  left:12px;
+  transform:rotate(-30deg);
 }
 
-.floral.two{
-  bottom:15px;
-  right:16px;
-  transform:rotate(155deg);
+.flower.two{
+  right:8px;
+  bottom:0;
+  transform:rotate(150deg);
 }
 
-.cover-content{
+.card-content{
   position:absolute;
-  inset:45px 25px;
+  inset:35px 25px;
   display:flex;
   flex-direction:column;
   align-items:center;
@@ -170,84 +142,73 @@ video{
   text-align:center;
 }
 
-.cover-small{
+.small{
   color:var(--gold);
   font-size:9px;
-  letter-spacing:.3em;
+  letter-spacing:.28em;
   text-transform:uppercase;
 }
 
 .monogram{
-  margin:28px 0;
-  font-family:
-    Georgia,
-    "Times New Roman",
-    serif;
-  font-size:clamp(76px,20vw,110px);
+  margin:32px 0 22px;
+  font-family:Georgia,serif;
+  font-size:92px;
   font-weight:400;
-  line-height:.8;
-  color:var(--ink);
-  letter-spacing:-.08em;
+  letter-spacing:-12px;
+  color:var(--green);
 }
 
 .monogram span{
   color:var(--gold);
-  font-size:.42em;
-  vertical-align:middle;
-  margin:0 4px;
+  font-size:36px;
+  margin:0 10px;
+  letter-spacing:0;
 }
 
-.cover-rule{
-  width:90px;
+.rule{
+  width:80px;
   height:1px;
   background:var(--gold);
-  margin:8px 0 20px;
+  margin:4px 0 20px;
 }
 
-.cover-name{
-  font-family:
-    Georgia,
-    "Times New Roman",
-    serif;
+.names{
+  font-family:Georgia,serif;
   font-size:18px;
-  color:var(--ink);
+  color:var(--green);
 }
 
-.tap-wrap{
+.tap{
+  width:88px;
+  height:88px;
   margin-top:42px;
-  display:flex;
-  justify-content:center;
-}
-
-.tap-button{
-  width:86px;
-  height:86px;
   border-radius:50%;
   border:1px solid var(--gold);
   background:
-    radial-gradient(circle,
-      #fffdf8 0,
-      #f3e4d9 72%,
-      #e5c8bc 100%);
-  color:var(--ink);
-  display:grid;
-  place-items:center;
-  box-shadow:
-    0 8px 25px rgba(70,45,40,.15),
-    inset 0 0 0 5px rgba(184,149,88,.08);
+    radial-gradient(
+      circle,
+      #fffefa,
+      #f1dfd5
+    );
+  color:var(--green);
   position:relative;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  box-shadow:0 8px 25px rgba(70,45,40,.15);
 }
 
-.tap-button::before{
+.tap:after{
   content:"";
   position:absolute;
-  inset:-7px;
-  border:1px solid rgba(184,149,88,.4);
+  inset:-8px;
   border-radius:50%;
+  border:1px solid rgba(184,150,88,.35);
   animation:pulse 2s infinite;
 }
 
-.tap-button span{
+.tap span{
   font-size:8px;
   letter-spacing:.16em;
   text-transform:uppercase;
@@ -256,38 +217,38 @@ video{
 @keyframes pulse{
   50%{
     transform:scale(1.08);
-    opacity:.35;
+    opacity:.25;
   }
 }
 
-/* =========================
+/* ==================================
    MAIN
-========================= */
+================================== */
 
-main{
+#main{
   opacity:0;
   transition:opacity 1s ease;
 }
 
-main.ready{
+#main.show{
   opacity:1;
 }
 
-/* =========================
+/* ==================================
    HERO VIDEO
-========================= */
+================================== */
 
 .hero{
   min-height:100svh;
   position:relative;
-  display:grid;
-  place-items:end center;
   overflow:hidden;
-  background:var(--deep);
-  color:white;
+  background:var(--green);
+  display:flex;
+  align-items:flex-end;
+  justify-content:center;
 }
 
-.hero-video{
+.hero video{
   position:absolute;
   inset:0;
   width:100%;
@@ -302,77 +263,73 @@ main.ready{
   background:
     linear-gradient(
       to bottom,
-      rgba(24,52,44,.25),
-      rgba(24,52,44,.35) 45%,
-      rgba(251,245,237,.95) 100%
+      rgba(24,53,45,.15),
+      rgba(24,53,45,.25) 50%,
+      rgba(255,250,244,.94) 100%
     );
 }
 
 .hero-content{
   position:relative;
   z-index:2;
-  width:min(100%,700px);
-  padding:35px 24px 10vh;
   text-align:center;
+  padding:30px 20px 12vh;
+  color:white;
 }
 
 .eyebrow{
   font-size:10px;
   letter-spacing:.25em;
   text-transform:uppercase;
-  color:var(--gold-light);
+  color:var(--gold2);
 }
 
 .hero h1{
-  margin:22px 0;
-  font-family:
-    Georgia,
-    "Times New Roman",
-    serif;
-  font-size:clamp(54px,15vw,105px);
-  line-height:.82;
-  font-weight:500;
-  color:#fffaf4;
+  font-family:Georgia,serif;
+  font-size:clamp(55px,15vw,105px);
+  line-height:.8;
+  font-weight:400;
+  margin:25px 0;
 }
 
 .hero h1 span{
   display:block;
+  color:var(--gold2);
   font-size:.4em;
-  color:var(--gold-light);
   margin:12px;
 }
 
-.hero-place{
+.place{
   display:inline-block;
-  border-top:1px solid rgba(226,202,150,.65);
-  border-bottom:1px solid rgba(226,202,150,.65);
   padding:12px 22px;
+  border-top:1px solid var(--gold2);
+  border-bottom:1px solid var(--gold2);
   font-size:10px;
   letter-spacing:.18em;
   text-transform:uppercase;
 }
 
-/* =========================
+/* ==================================
    MUSIC
-========================= */
+================================== */
 
-.music-button{
+.music{
   position:fixed;
-  right:18px;
-  bottom:18px;
-  z-index:100;
+  z-index:500;
+  right:16px;
+  bottom:16px;
   width:52px;
   height:52px;
   border-radius:50%;
   border:1px solid var(--gold);
-  background:rgba(24,52,44,.88);
-  color:var(--gold-light);
+  background:rgba(24,53,45,.92);
+  color:var(--gold2);
   font-size:20px;
-  box-shadow:0 8px 25px rgba(0,0,0,.18);
+  box-shadow:0 8px 25px rgba(0,0,0,.2);
 }
 
-.music-button.playing{
-  animation:musicPulse 1.4s infinite;
+.music.playing{
+  animation:musicPulse 1.5s infinite;
 }
 
 @keyframes musicPulse{
@@ -381,9 +338,9 @@ main.ready{
   }
 }
 
-/* =========================
-   SECTIONS
-========================= */
+/* ==================================
+   COMMON
+================================== */
 
 section{
   padding:85px 20px;
@@ -399,125 +356,124 @@ section{
   font-size:10px;
   letter-spacing:.25em;
   text-transform:uppercase;
+  text-align:center;
 }
 
-.section-title{
-  margin:12px 0 20px;
-  font-family:
-    Georgia,
-    "Times New Roman",
-    serif;
-  font-size:clamp(42px,11vw,70px);
-  line-height:.9;
-  font-weight:500;
-  color:var(--deep);
+.title{
+  margin:13px 0;
+  font-family:Georgia,serif;
+  font-size:clamp(42px,10vw,68px);
+  line-height:.95;
+  font-weight:400;
+  color:var(--green);
+  text-align:center;
 }
 
 .ornament{
   display:flex;
-  justify-content:center;
   align-items:center;
+  justify-content:center;
   gap:12px;
   color:var(--gold);
   margin:25px 0;
 }
 
-.ornament::before,
-.ornament::after{
+.ornament:before,
+.ornament:after{
   content:"";
-  width:65px;
+  width:60px;
   height:1px;
-  background:rgba(184,149,88,.5);
+  background:rgba(184,150,88,.5);
 }
 
 .lead{
-  max-width:680px;
+  max-width:650px;
   margin:auto;
   text-align:center;
-  color:#6c756f;
+  color:#6c746e;
   line-height:1.9;
 }
 
-/* =========================
+/* ==================================
    SCRATCH
-========================= */
+================================== */
 
 .scratch-section{
   background:
     radial-gradient(
       circle at 50% 20%,
-      #31594b,
-      var(--deep) 70%
+      #416c5d,
+      var(--dark) 70%
     );
   color:white;
-  overflow:hidden;
   text-align:center;
 }
 
-.scratch-section .section-title{
-  color:#fffaf4;
+.scratch-section .title{
+  color:white;
 }
 
 .scratch-stage{
   width:min(88vw,390px);
   aspect-ratio:1;
-  margin:35px auto 0;
   position:relative;
-  border-radius:16px;
+  margin:35px auto 0;
+  border-radius:18px;
   box-shadow:0 25px 55px rgba(0,0,0,.35);
 }
 
-.date-reveal{
+.date{
   position:absolute;
   inset:0;
+  border-radius:18px;
+  border:1px solid var(--gold);
+  background:
+    radial-gradient(
+      circle at center,
+      #416d5c,
+      #193b31
+    );
   display:flex;
   flex-direction:column;
-  justify-content:center;
   align-items:center;
-  background:
-    radial-gradient(circle at 50% 40%,#376755,#193b31);
-  border:1px solid var(--gold);
-  border-radius:16px;
+  justify-content:center;
 }
 
 .date-label{
-  color:var(--gold-light);
+  color:var(--gold2);
   font-size:9px;
   letter-spacing:.25em;
   text-transform:uppercase;
 }
 
 .date-boxes{
-  display:grid;
-  grid-template-columns:1fr 1.45fr 1fr;
-  gap:7px;
   width:90%;
-  margin-top:22px;
+  display:grid;
+  grid-template-columns:1fr 1.4fr 1fr;
+  gap:7px;
+  margin:22px 0;
 }
 
 .date-box{
-  min-height:100px;
+  min-height:105px;
+  border:1px solid rgba(226,201,148,.7);
+  border-radius:9px;
   display:flex;
   flex-direction:column;
   align-items:center;
   justify-content:center;
-  border:1px solid rgba(226,202,150,.7);
-  background:rgba(255,255,255,.045);
-  border-radius:8px;
+  background:rgba(255,255,255,.04);
 }
 
 .date-box strong{
-  font-family:
-    Georgia,
-    "Times New Roman",
-    serif;
-  font-size:clamp(28px,8vw,42px);
-  color:#fff;
+  font-family:Georgia,serif;
+  font-size:clamp(28px,8vw,43px);
+  font-weight:400;
 }
 
 .date-box small{
-  margin-top:7px;
-  color:var(--gold-light);
+  margin-top:8px;
+  color:var(--gold2);
   font-size:8px;
   letter-spacing:.15em;
   text-transform:uppercase;
@@ -528,64 +484,58 @@ section{
   inset:0;
   width:100%;
   height:100%;
-  border-radius:16px;
+  border-radius:18px;
   touch-action:none;
 }
 
-.scratch-note{
-  margin-top:20px;
-  color:var(--gold-light);
-  font-size:9px;
-  letter-spacing:.2em;
-  text-transform:uppercase;
-}
+/* ==================================
+   PAPER BURST
+================================== */
 
-/* Paper burst */
-
-.burst-piece,
-.gold-particle{
+.paper{
   position:absolute;
   left:50%;
   top:50%;
-  pointer-events:none;
-  opacity:0;
-}
-
-.burst-piece{
-  width:55px;
-  height:38px;
+  width:58px;
+  height:42px;
   background:
-    linear-gradient(135deg,#fff7e9,#d6b76e);
+    linear-gradient(
+      135deg,
+      #fff8e9,
+      #d8ba73
+    );
   clip-path:
     polygon(
-      0 20%,25% 0,45% 18%,72% 2%,
-      100% 28%,77% 55%,92% 100%,
-      55% 78%,30% 96%,18% 65%
+      0 20%,
+      25% 0,
+      45% 18%,
+      70% 2%,
+      100% 28%,
+      77% 55%,
+      92% 100%,
+      55% 78%,
+      30% 96%,
+      18% 65%
     );
+  opacity:0;
+  pointer-events:none;
 }
 
-.gold-particle{
-  width:6px;
-  height:6px;
-  border-radius:50%;
-  background:var(--gold-light);
-}
-
-.bursting .burst-piece{
-  animation:burst .95s cubic-bezier(.1,.8,.2,1) forwards;
-  animation-delay:var(--delay);
-}
-
-.bursting .gold-particle{
-  animation:particle 1.1s ease-out forwards;
-  animation-delay:var(--delay);
+.burst .paper{
+  animation:
+    burst .95s cubic-bezier(.1,.8,.2,1)
+    forwards;
 }
 
 @keyframes burst{
   0%{
     opacity:1;
-    transform:translate(-50%,-50%) rotate(0) scale(1);
+    transform:
+      translate(-50%,-50%)
+      rotate(0)
+      scale(1);
   }
+
   100%{
     opacity:0;
     transform:
@@ -598,53 +548,38 @@ section{
   }
 }
 
-@keyframes particle{
-  0%{
-    opacity:1;
-  }
-  100%{
-    opacity:0;
-    transform:
-      translate(var(--x),var(--y))
-      scale(.2);
-  }
-}
-
-/* =========================
+/* ==================================
    EVENTS
-========================= */
+================================== */
 
 .events{
   background:
-    linear-gradient(145deg,#fffaf3,#f1e3d7);
+    linear-gradient(
+      145deg,
+      #fffaf4,
+      #f0e0d7
+    );
 }
 
-.event-grid{
+.events-grid{
   display:grid;
   gap:16px;
   margin-top:38px;
 }
 
-.event-card{
-  background:rgba(255,255,255,.72);
-  border:1px solid rgba(184,149,88,.4);
+.event{
   padding:28px 23px;
+  background:rgba(255,255,255,.72);
+  border:1px solid rgba(184,150,88,.4);
   box-shadow:0 12px 30px rgba(36,60,52,.06);
 }
 
-.event-card h3{
-  margin:0;
-  font-family:
-    Georgia,
-    "Times New Roman",
-    serif;
-  font-size:28px;
-  font-weight:500;
-}
-
-.event-card p{
-  color:#6d766f;
-  line-height:1.7;
+.event h3{
+  margin:8px 0;
+  font-family:Georgia,serif;
+  font-size:29px;
+  font-weight:400;
+  color:var(--green);
 }
 
 .event-date{
@@ -654,18 +589,23 @@ section{
   text-transform:uppercase;
 }
 
-/* =========================
+.event p{
+  color:#69736d;
+  line-height:1.7;
+}
+
+/* ==================================
    COUNTDOWN
-========================= */
+================================== */
 
 .countdown{
-  background:var(--deep);
+  background:var(--dark);
   color:white;
   text-align:center;
 }
 
-.countdown .section-title{
-  color:#fffaf4;
+.countdown .title{
+  color:white;
 }
 
 .counter{
@@ -673,12 +613,12 @@ section{
   margin:35px auto 0;
   display:grid;
   grid-template-columns:repeat(4,1fr);
-  border:1px solid rgba(226,202,150,.4);
+  border:1px solid rgba(226,201,148,.4);
 }
 
 .counter div{
-  padding:20px 5px;
-  border-right:1px solid rgba(226,202,150,.25);
+  padding:20px 4px;
+  border-right:1px solid rgba(226,201,148,.25);
 }
 
 .counter div:last-child{
@@ -687,9 +627,10 @@ section{
 
 .counter strong{
   display:block;
+  color:var(--gold2);
   font-family:Georgia,serif;
   font-size:clamp(27px,8vw,45px);
-  color:var(--gold-light);
+  font-weight:400;
 }
 
 .counter span{
@@ -698,9 +639,9 @@ section{
   text-transform:uppercase;
 }
 
-/* =========================
+/* ==================================
    MESSAGE
-========================= */
+================================== */
 
 .message{
   text-align:center;
@@ -712,63 +653,64 @@ section{
   margin:auto;
   font-family:Georgia,serif;
   font-size:clamp(25px,6vw,38px);
-  line-height:1.35;
+  line-height:1.4;
+  color:var(--green);
 }
 
-/* =========================
+/* ==================================
    DETAILS
-========================= */
+================================== */
 
 .details{
   background:
     linear-gradient(
       145deg,
-      #e7d3ca,
-      #f8eee6
+      #e8d3ca,
+      #faf0e9
     );
 }
 
-.detail-grid{
+.details-grid{
   display:grid;
   gap:15px;
-  max-width:750px;
+  max-width:760px;
   margin:35px auto;
 }
 
-.detail-card{
-  padding:25px;
-  background:rgba(255,255,255,.6);
-  border:1px solid rgba(184,149,88,.45);
+.detail{
+  padding:26px;
+  background:rgba(255,255,255,.62);
+  border:1px solid rgba(184,150,88,.45);
+  text-align:center;
 }
 
-.detail-card h3{
-  margin:7px 0;
+.detail h3{
+  margin:8px 0;
   font-family:Georgia,serif;
-  font-size:27px;
-  font-weight:500;
+  font-size:28px;
+  font-weight:400;
+  color:var(--green);
 }
 
-.detail-card p{
-  color:#66716a;
+.detail p{
+  color:#69736d;
   line-height:1.7;
 }
 
-.btn-row{
+.buttons{
   display:flex;
   justify-content:center;
-  gap:10px;
   flex-wrap:wrap;
+  gap:10px;
 }
 
 .btn{
   padding:14px 21px;
-  text-decoration:none;
-  text-transform:uppercase;
-  letter-spacing:.14em;
-  font-size:9px;
   border:1px solid var(--gold);
-  color:var(--ink);
-  background:transparent;
+  color:var(--green);
+  font-size:9px;
+  letter-spacing:.14em;
+  text-transform:uppercase;
 }
 
 .btn.gold{
@@ -776,21 +718,21 @@ section{
   color:white;
 }
 
-/* =========================
+/* ==================================
    FOOTER
-========================= */
+================================== */
 
 footer{
   padding:35px 20px;
-  text-align:center;
   background:#132c25;
-  color:#e9dfce;
+  color:#e8dece;
+  text-align:center;
   font-family:Georgia,serif;
 }
 
-/* =========================
-   SCROLL MOTION
-========================= */
+/* ==================================
+   MOTION
+================================== */
 
 .reveal{
   opacity:0;
@@ -805,26 +747,18 @@ footer{
   transform:none;
 }
 
-/* =========================
-   DESKTOP
-========================= */
-
 @media(min-width:700px){
 
   section{
     padding:110px 35px;
   }
 
-  .event-grid{
+  .events-grid{
     grid-template-columns:repeat(3,1fr);
   }
 
-  .detail-grid{
+  .details-grid{
     grid-template-columns:repeat(2,1fr);
-  }
-
-  .hero-content{
-    padding-bottom:12vh;
   }
 }
 </style>
@@ -832,73 +766,70 @@ footer{
 
 <body>
 
-<!-- =====================================================
+<!-- ==================================
      CLOSED INVITATION
-===================================================== -->
+================================== -->
 
-<div class="opening" id="opening">
+<div id="opening">
 
-  <div class="invitation-cover" id="invitationCover">
+  <div class="card" id="card">
 
-    <div class="cover-front">
+    <div class="flower one">❧</div>
+    <div class="flower two">❧</div>
 
-      <div class="floral one">❧</div>
-      <div class="floral two">❧</div>
+    <div class="card-content">
 
-      <div class="cover-content">
-
-        <div class="cover-small">
-          In the name of Allah
-        </div>
-
-        <div class="monogram">
-          A <span>&amp;</span> F
-        </div>
-
-        <div class="cover-rule"></div>
-
-        <div class="cover-name">
-          Anjum &amp; Mohammed Farhan
-        </div>
-
-        <div class="tap-wrap">
-          <button
-            class="tap-button"
-            id="openInvitation"
-            aria-label="Tap to open invitation"
-          >
-            <span>
-              Tap<br>
-              to Open
-            </span>
-          </button>
-        </div>
-
+      <div class="small">
+        With the blessings of Allah
       </div>
-    </div>
 
+      <div class="monogram">
+        A <span>&amp;</span> F
+      </div>
+
+      <div class="rule"></div>
+
+      <div class="names">
+        Anjum &amp; Mohammed Farhan
+      </div>
+
+      <button
+        class="tap"
+        id="openButton"
+      >
+        <span>
+          Tap<br>
+          to Open
+        </span>
+      </button>
+
+    </div>
   </div>
 </div>
 
 
-<!-- =====================================================
+<!-- ==================================
      MAIN INVITATION
-===================================================== -->
+================================== -->
 
-<main id="invitation">
+<div id="main">
 
-  <!-- VIDEO HERO -->
+  <!-- VIDEO -->
+  <section class="hero">
 
-  <header class="hero">
+    <!--
+      If you have a wedding video,
+      upload it to:
+      assets/wedding-video.mp4
+    -->
 
     <video
-      class="hero-video"
-      id="weddingVideo"
+      id="video"
+      autoplay
       muted
       loop
       playsinline
-      preload="metadata"
-      poster="assets/wedding-preview.svg"
+      poster=""
     >
       <source
         src="assets/wedding-video.mp4"
@@ -920,21 +851,25 @@ footer{
         Mohammed Farhan
       </h1>
 
-      <div class="hero-place">
+      <div class="place">
         Nasrin Palace · Mysore
       </div>
 
     </div>
 
-  </header>
+  </section>
 
 
   <!-- MUSIC -->
 
+  <!--
+    Upload your music as:
+    assets/wedding-music.mp3
+  -->
+
   <audio
-    id="weddingMusic"
+    id="music"
     loop
-    preload="metadata"
   >
     <source
       src="assets/wedding-music.mp3"
@@ -943,36 +878,34 @@ footer{
   </audio>
 
   <button
-    class="music-button"
+    class="music"
     id="musicButton"
-    aria-label="Play background music"
   >
     ♪
   </button>
 
 
-  <!-- SCRATCH DATE -->
+  <!-- SCRATCH -->
 
-  <section
-    class="scratch-section"
-    id="date"
-  >
+  <section class="scratch-section">
 
-    <div class="wrap">
+    <div class="wrap reveal">
 
       <div class="label">
         A little surprise
       </div>
 
-      <h2 class="section-title">
+      <h2 class="title">
         Scratch to reveal
       </h2>
 
-      <div class="ornament">✦</div>
+      <div class="ornament">
+        ✦
+      </div>
 
-      <p class="lead" style="color:#d8ddd7">
-        A special date awaits beneath the paper.
-        Gently scratch the card to reveal it.
+      <p class="lead" style="color:#dbe1dc">
+        Gently scratch the card to discover
+        our special wedding date.
       </p>
 
       <div
@@ -980,7 +913,7 @@ footer{
         id="scratchStage"
       >
 
-        <div class="date-reveal">
+        <div class="date">
 
           <div class="date-label">
             Save the Date
@@ -994,7 +927,7 @@ footer{
             </div>
 
             <div class="date-box">
-              <strong>OCT</strong>
+              <strong>OCTOBER</strong>
               <small>Month</small>
             </div>
 
@@ -1005,56 +938,47 @@ footer{
 
           </div>
 
-          <div
-            class="date-label"
-            style="margin-top:20px"
-          >
+          <div class="date-label">
             Nikah &amp; Valima
           </div>
 
         </div>
 
+
         <canvas id="scratch"></canvas>
 
-        <!-- Paper burst -->
 
-        <div class="burst-piece"
-          style="--x:-130px;--y:-120px;--r:-35deg;--delay:0s">
+        <!-- PAPER PIECES -->
+
+        <div class="paper"
+          style="--x:-135px;--y:-115px;--r:-35deg">
         </div>
 
-        <div class="burst-piece"
-          style="--x:130px;--y:-100px;--r:45deg;--delay:.05s">
+        <div class="paper"
+          style="--x:135px;--y:-105px;--r:45deg">
         </div>
 
-        <div class="burst-piece"
-          style="--x:-120px;--y:110px;--r:70deg;--delay:.08s">
+        <div class="paper"
+          style="--x:-120px;--y:115px;--r:65deg">
         </div>
 
-        <div class="burst-piece"
-          style="--x:120px;--y:120px;--r:-55deg;--delay:.12s">
+        <div class="paper"
+          style="--x:125px;--y:120px;--r:-55deg">
         </div>
 
-        <div class="gold-particle"
-          style="--x:-150px;--y:-40px;--delay:.02s">
+        <div class="paper"
+          style="--x:-75px;--y:-145px;--r:25deg">
         </div>
 
-        <div class="gold-particle"
-          style="--x:150px;--y:-60px;--delay:.06s">
-        </div>
-
-        <div class="gold-particle"
-          style="--x:-100px;--y:120px;--delay:.1s">
-        </div>
-
-        <div class="gold-particle"
-          style="--x:100px;--y:130px;--delay:.15s">
+        <div class="paper"
+          style="--x:75px;--y:145px;--r:-25deg">
         </div>
 
       </div>
 
-      <div class="scratch-note">
-        Scratch gently to reveal the date
-      </div>
+      <p class="scratch-note">
+        Scratch gently to reveal
+      </p>
 
     </div>
 
@@ -1071,45 +995,69 @@ footer{
         The Celebrations
       </div>
 
-      <h2 class="section-title">
-        Our joyful days
+      <h2 class="title">
+        Our Special Days
       </h2>
 
-      <div class="ornament">✦</div>
+      <div class="ornament">
+        ✦
+      </div>
 
-      <div class="event-grid">
+      <div class="events-grid">
 
-        <article class="event-card">
+        <div class="event">
+
           <div class="event-date">
-            Thursday · 08 October 2026
+            05 October 2026
           </div>
-          <h3>Nikah</h3>
-          <p>
-            A beautiful beginning surrounded by
-            family, love and blessings.
-          </p>
-        </article>
 
-        <article class="event-card">
-          <div class="event-date">
-            Thursday · 08 October 2026
-          </div>
-          <h3>Valima</h3>
-          <p>
-            Join us as we celebrate this joyous
-            occasion together.
-          </p>
-        </article>
+          <h3>
+            Mehndi Ceremony
+          </h3>
 
-        <article class="event-card">
-          <div class="event-date">
-            Venue
-          </div>
-          <h3>Nasrin Palace</h3>
           <p>
-            Mysore, Karnataka
+            A joyful celebration filled with
+            colour, laughter and blessings.
           </p>
-        </article>
+
+        </div>
+
+
+        <div class="event">
+
+          <div class="event-date">
+            06 October 2026
+          </div>
+
+          <h3>
+            Haldi Ceremony
+          </h3>
+
+          <p>
+            A beautiful day of family,
+            happiness and celebration.
+          </p>
+
+        </div>
+
+
+        <div class="event">
+
+          <div class="event-date">
+            08 October 2026
+          </div>
+
+          <h3>
+            Nikah &amp; Valima
+          </h3>
+
+          <p>
+            Together with our families,
+            we invite you to celebrate our
+            special day.
+          </p>
+
+        </div>
 
       </div>
 
@@ -1128,8 +1076,8 @@ footer{
         Counting the moments
       </div>
 
-      <h2 class="section-title">
-        Until we celebrate
+      <h2 class="title">
+        Until Our Special Day
       </h2>
 
       <div class="counter">
@@ -1171,7 +1119,9 @@ footer{
         With love
       </div>
 
-      <div class="ornament">✦</div>
+      <div class="ornament">
+        ✦
+      </div>
 
       <p class="quote">
         Two hearts, one beautiful journey,
@@ -1184,40 +1134,150 @@ footer{
   </section>
 
 
-  <!-- DETAILS -->
+  <!-- VENUE -->
 
   <section class="details">
 
     <div class="wrap reveal">
 
-      <div style="text-align:center">
-
-        <div class="label">
-          Join us
-        </div>
-
-        <h2 class="section-title">
-          Celebration Details
-        </h2>
-
+      <div class="label">
+        Join us
       </div>
 
-      <div class="detail-grid">
+      <h2 class="title">
+        Celebration Details
+      </h2>
 
-        <div class="detail-card">
+      <div class="details-grid">
 
-          <div>✦</div>
+        <div class="detail">
 
           <h3>
             Nasrin Palace
           </h3>
 
           <p>
-            Mysore, Karnataka
+            Christian Colony,<br>
+            Rajivnagar Main Road,<br>
+            Mysore
           </p>
 
         </div>
 
-        <div class="detail-card">
 
-          <div>◷
+        <div class="detail">
+
+          <h3>
+            Lunch
+          </h3>
+
+          <p>
+            11:30 AM
+          </p>
+
+        </div>
+
+      </div>
+
+
+      <div class="buttons">
+
+        <a
+          class="btn gold"
+          href="https://www.google.com/maps/search/?api=1&query=Nasrin+Palace+Christian+Colony+Rajivnagar+Main+Road+Mysore"
+          target="_blank"
+        >
+          Open Maps
+        </a>
+
+        <a
+          class="btn"
+          href="tel:+919591279552"
+        >
+          +91 9591279552
+        </a>
+
+        <a
+          class="btn"
+          href="tel:+919902638740"
+        >
+          +91 99026 38740
+        </a>
+
+        <a
+          class="btn"
+          href="https://wa.me/919591279552?text=You%20are%20invited%20to%20the%20wedding%20of%20Anjum%20%26%20Mohammed%20Farhan%20on%2008%20October%202026."
+          target="_blank"
+        >
+          WhatsApp
+        </a>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <footer>
+    Anjum &amp; Mohammed Farhan
+    <br>
+    <small>
+      With the blessings of Allah · 08 October 2026
+    </small>
+  </footer>
+
+</div>
+
+
+<script>
+
+/* ==================================
+   OPEN INVITATION
+================================== */
+
+const opening =
+  document.getElementById("opening");
+
+const card =
+  document.getElementById("card");
+
+const openButton =
+  document.getElementById("openButton");
+
+const main =
+  document.getElementById("main");
+
+const music =
+  document.getElementById("music");
+
+const video =
+  document.getElementById("video");
+
+const musicButton =
+  document.getElementById("musicButton");
+
+
+let invitationOpened=false;
+
+
+openButton.addEventListener(
+  "click",
+  function(){
+
+    if(invitationOpened) return;
+
+    invitationOpened=true;
+
+    card.classList.add("open");
+
+    main.classList.add("show");
+
+
+    /*
+      Music starts after user interaction.
+    */
+
+    music.play()
+      .then(function(){
+  
